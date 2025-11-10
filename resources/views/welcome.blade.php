@@ -88,24 +88,16 @@
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
-                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="modals.html">
-                            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path></path>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="relative px-6 py-3">
                         <button
-                            class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                            class="inline-flex items-center justify-between w-full text-sm font-semibold
+                             transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             @click="togglePagesMenu" aria-haspopup="true">
                             <span class="inline-flex items-center">
                                 <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path
-                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1
+                                        0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
                                     </path>
                                 </svg>
                                 <span class="ml-4">Pengaturan</span>
@@ -265,61 +257,52 @@
                             <span class="ml-4">Tables</span>
                         </a>
                     </li>
-                    <li class="relative px-6 py-3">
-                        <button
-                            class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            @click="togglePagesMenu" aria-haspopup="true">
-                            <span class="inline-flex items-center">
-                                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path
-                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                                    </path>
-                                </svg>
-                                <span class="ml-4">Settings</span>
-                            </span>
-                            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <template x-if="isPagesMenuOpen">
-                            <ul x-transition:enter="transition-all ease-in-out duration-300"
-                                x-transition:enter-start="opacity-25 max-h-0"
-                                x-transition:enter-end="opacity-100 max-h-xl"
-                                x-transition:leave="transition-all ease-in-out duration-300"
-                                x-transition:leave-start="opacity-100 max-h-xl"
-                                x-transition:leave-end="opacity-0 max-h-0"
-                                class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
-                                aria-label="submenu">
-                                <li
-                                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a class="w-full" href="pages/login.html">Login</a>
-                                </li>
-                                <li
-                                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a class="w-full" href="pages/create-account.html">
-                                        Create account
-                                    </a>
-                                </li>
-                                <li
-                                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a class="w-full" href="pages/forgot-password.html">
-                                        Forgot password
-                                    </a>
-                                </li>
-                                <li
-                                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a class="w-full" href="pages/logout.html">logout</a>
-                                </li>
-                                <li
-                                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
 
-                                </li>
-                            </ul>
-                        </template>
+                    <button @click="togglePagesMenu" aria-haspopup="true">
+                        <span class="inline-flex items-center">
+                            </svg>
+                            <span class="ml-4">Settings</span>
+                        </span>
+                        <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <template x-if="isPagesMenuOpen">
+                        <ul x-transition:enter="transition-all ease-in-out duration-300"
+                            x-transition:enter-start="opacity-25 max-h-0"
+                            x-transition:enter-end="opacity-100 max-h-xl"
+                            x-transition:leave="transition-all ease-in-out duration-300"
+                            x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                            aria-label="submenu">
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/login.html">Login</a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/create-account.html">
+                                    Create account
+                                </a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/forgot-password.html">
+                                    Forgot password
+                                </a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/logout.html">logout</a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+
+                            </li>
+                        </ul>
+                    </template>
                     </li>
                 </ul>
                 <div class="px-6 my-6">
@@ -521,10 +504,10 @@
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Total clients
+                                    Total Siswa
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    6389
+                                    19
                                 </p>
                             </div>
                         </div>
@@ -540,10 +523,10 @@
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Account balance
+                                    Total Guru
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    $ 46,760.89
+                                    20
                                 </p>
                             </div>
                         </div>
@@ -594,10 +577,10 @@
                                 <thead>
                                     <tr
                                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                        <th class="px-4 py-3">Client</th>
-                                        <th class="px-4 py-3">Amount</th>
-                                        <th class="px-4 py-3">Status</th>
-                                        <th class="px-4 py-3">Date</th>
+                                        <th class="px-4 py-3">Nama Siswa</th>
+                                        <th class="px-4 py-3">Kelas</th>
+                                        <th class="px-4 py-3">Alasan Izin</th>
+                                        <th class="px-4 py-3">Tanggal Pengajuan</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -613,7 +596,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Hans Burger</p>
+                                                    <p class="font-semibold">Abdul Rio</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         10x Developer
                                                     </p>
@@ -621,12 +604,12 @@
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 863.45
+                                            XI
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                                Approved
+                                                Koma
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
@@ -646,7 +629,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Jolina Angelie</p>
+                                                    <p class="font-semibold">Dayang</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         Unemployed
                                                     </p>
@@ -654,12 +637,12 @@
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 369.95
+                                            X
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
-                                                Pending
+                                                OTT
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
@@ -679,7 +662,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Sarah Curry</p>
+                                                    <p class="font-semibold">Bahlil JR</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         Designer
                                                     </p>
@@ -687,12 +670,12 @@
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 86.00
+                                            XX
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                                                Denied
+                                                Makai
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
@@ -712,7 +695,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Rulia Joberts</p>
+                                                    <p class="font-semibold">EL Korek</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         Actress
                                                     </p>
@@ -745,7 +728,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Wenzel Dashington</p>
+                                                    <p class="font-semibold">Ujang Darat</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         Actor
                                                     </p>
@@ -778,7 +761,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Dave Li</p>
+                                                    <p class="font-semibold">EL Berak</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         Influencer
                                                     </p>
@@ -811,7 +794,7 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Maria Ramovic</p>
+                                                    <p class="font-semibold">Jamal</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         Runner
                                                     </p>
@@ -887,146 +870,4 @@
                                         <td class="px-4 py-3 text-sm">
                                             $ 863.45
                                         </td>
-                                        <td class="px-4 py-3 text-xs">
-                                            <span
-                                                class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                                Approved
-                                            </span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            6/10/2020
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div
-                            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-                            <span class="flex items-center col-span-3">
-                                Showing 21-30 of 100
-                            </span>
-                            <span class="col-span-2"></span>
-                            <!-- Pagination -->
-                            <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                                <nav aria-label="Table navigation">
-                                    <ul class="inline-flex items-center">
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                                                aria-label="Previous">
-                                                <svg aria-hidden="true" class="w-4 h-4 fill-current"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                                </svg>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                                1
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                                2
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                                3
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                                4
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <span class="px-3 py-1">...</span>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                                8
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                                9
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                                                aria-label="Next">
-                                                <svg class="w-4 h-4 fill-current" aria-hidden="true"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                                </svg>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Charts -->
-                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                        Charts
-                    </h2>
-                    <div class="grid gap-6 mb-8 md:grid-cols-2">
-                        <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                            <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                                Revenue
-                            </h4>
-                            <canvas id="pie"></canvas>
-                            <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                                <!-- Chart legend -->
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"></span>
-                                    <span>Shirts</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                                    <span>Shoes</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                                    <span>Bags</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                            <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                                Traffic
-                            </h4>
-                            <canvas id="line"></canvas>
-                            <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                                <!-- Chart legend -->
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                                    <span>Organic</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                                    <span>Paid</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-</body>
-
-</html>
+                                        <td class="px-4 py-3 text-xs"></td>

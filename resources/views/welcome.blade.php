@@ -27,8 +27,10 @@
                     <li class="relative px-6 py-3">
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
-                        <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                            href="index.html">
+                        <a
+                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
+                        focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -41,8 +43,10 @@
                 </ul>
                 <ul>
                     <li class="relative px-6 py-3">
-                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="forms.html">
+                        <a
+                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
+                        focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -53,8 +57,11 @@
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
-                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="cards.html">
+                        <a
+                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
+                        focus:shadow-outline-purple">
+
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -65,8 +72,10 @@
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
-                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="charts.html">
+                        <a
+                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
+                        focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
@@ -76,8 +85,10 @@
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
-                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="buttons.html">
+                        <a
+                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
+                        focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -146,7 +157,9 @@
                 </ul>
                 <div class="px-6 my-6">
                     <button
-                        class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                        class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-purple-700 focus:outline-none 
+                        focus:shadow-outline-purple">
                         Create account
                         <span class="ml-2" aria-hidden="true">+</span>
                     </button>
@@ -307,7 +320,9 @@
                 </ul>
                 <div class="px-6 my-6">
                     <button
-                        class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                        class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none 
+                        focus:shadow-outline-purple">
                         Create account
                         <span class="ml-2" aria-hidden="true">+</span>
                     </button>
@@ -507,7 +522,7 @@
                                     Total Siswa
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    19
+                                    850
                                 </p>
                             </div>
                         </div>
@@ -526,7 +541,7 @@
                                     Total Guru
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    20
+                                    45
                                 </p>
                             </div>
                         </div>
@@ -870,4 +885,229 @@
                                         <td class="px-4 py-3 text-sm">
                                             $ 863.45
                                         </td>
-                                        <td class="px-4 py-3 text-xs"></td>
+                                        <td class="px-4 py-3 text-xs">
+                                            <span
+                                                class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                                Approved
+                                            </span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            6/10/2020
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div
+                            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+                            <span class="flex items-center col-span-3">
+                                Showing 21-30 of 100
+                            </span>
+                            <span class="col-span-2"></span>
+                            <!-- Pagination -->
+                            <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                                <nav aria-label="Table navigation">
+                                    <ul class="inline-flex items-center">
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
+                                                aria-label="Previous">
+                                                <svg aria-hidden="true" class="w-4 h-4 fill-current"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                        clip-rule="evenodd" fill-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                                1
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                                2
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                                3
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                                4
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <span class="px-3 py-1">...</span>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                                8
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                                9
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button
+                                                class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
+                                                aria-label="Next">
+                                                <svg class="w-4 h-4 fill-current" aria-hidden="true"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                        clip-rule="evenodd" fill-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Tambahkan CDN Chart.js -->
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                    <!-- Bagian Judul -->
+                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                        Data Sekolah
+                    </h2>
+
+                    <!-- Grid dua grafik -->
+                    <div class="grid gap-6 mb-8 md:grid-cols-2">
+                        <!-- Grafik 1: Perbandingan Siswa dan Guru -->
+                        <div class="min-w-0 p-6 bg-white rounded-2xl shadow-lg dark:bg-gray-800">
+                            <h4 class="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-300">
+                                Perbandingan Siswa dan Guru
+                            </h4>
+                            <canvas id="pieChart"></canvas>
+                            <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-600 dark:text-gray-400">
+                                <div class="flex items-center">
+                                    <span class="inline-block w-3 h-3 mr-1 bg-indigo-500 rounded-full"></span>
+                                    <span>Siswa</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-block w-3 h-3 mr-1 bg-emerald-500 rounded-full"></span>
+                                    <span>Guru</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grafik 2: Jumlah Per Tahun -->
+                        <div class="min-w-0 p-6 bg-white rounded-2xl shadow-lg dark:bg-gray-800">
+                            <h4 class="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-300">
+                                Pertumbuhan Siswa dan Guru (5 Tahun Terakhir)
+                            </h4>
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Pie Chart (Siswa vs Guru)
+                        const pieCtx = document.getElementById('pieChart').getContext('2d');
+                        new Chart(pieCtx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Siswa', 'Guru'],
+                                datasets: [{
+                                    data: [850, 45], // Contoh data
+                                    backgroundColor: ['#6366F1', '#10B981'],
+                                    borderWidth: 2,
+                                    borderColor: '#fff',
+                                    hoverOffset: 8
+                                }]
+                            },
+                            options: {
+                                cutout: '70%',
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#1F2937',
+                                        titleColor: '#F9FAFB',
+                                        bodyColor: '#E5E7EB',
+                                        cornerRadius: 8
+                                    }
+                                }
+                            }
+                        });
+
+                        // Bar Chart (Per Tahun)
+                        const barCtx = document.getElementById('barChart').getContext('2d');
+                        new Chart(barCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['2021', '2022', '2023', '2024', '2025'],
+                                datasets: [{
+                                        label: 'Siswa',
+                                        data: [450, 304, 201, 550, 610],
+                                        backgroundColor: '#6366F1',
+                                        borderRadius: 8
+                                    },
+                                    {
+                                        label: 'Guru',
+                                        data: [40, 42, 43, 44, 45],
+                                        backgroundColor: '#10B981',
+                                        borderRadius: 8
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            color: '#E5E7EB'
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#1F2937',
+                                        titleColor: '#F9FAFB',
+                                        bodyColor: '#E5E7EB',
+                                        cornerRadius: 8
+                                    }
+                                },
+                                scales: {
+                                    x: {
+                                        ticks: {
+                                            color: '#9CA3AF'
+                                        },
+                                        grid: {
+                                            display: false
+                                        }
+                                    },
+                                    y: {
+                                        ticks: {
+                                            color: '#9CA3AF'
+                                        },
+                                        grid: {
+                                            color: '#374151'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+
+                    
+                </div>
+        </div>
+        </main>
+    </div>
+    </div>
+</body>
+
+</html>

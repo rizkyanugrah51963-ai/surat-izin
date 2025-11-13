@@ -28,7 +28,7 @@
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                         <a
-                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -44,7 +44,7 @@
                 <ul>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -58,7 +58,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
 
@@ -73,7 +73,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -86,7 +86,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -100,7 +100,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <button
-                            class="inline-flex items-center justify-between w-full text-sm font-semibold
+                            class="inline-flex items-center  w-full text-sm font-semibold
                              transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             @click="togglePagesMenu" aria-haspopup="true">
                             <span class="inline-flex items-center">

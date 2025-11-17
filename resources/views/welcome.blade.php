@@ -28,7 +28,7 @@
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                         <a
-                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -44,7 +44,7 @@
                 <ul>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -58,7 +58,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
 
@@ -73,7 +73,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a
-                            class="flex items-center  w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
+                            class="flex items-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
                         duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none 
                         focus:shadow-outline-purple">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -100,7 +100,7 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <button
-                            class="inline-flex items-center  w-full text-sm font-semibold
+                            class="inline-flex items-center w-full text-sm font-semibold
                              transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             @click="togglePagesMenu" aria-haspopup="true">
                             <span class="inline-flex items-center">
@@ -131,6 +131,7 @@
                                 <li
                                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                                     <a class="w-full" href="pages/login.html">Login</a>
+
                                 </li>
                                 <li
                                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
@@ -158,7 +159,7 @@
                 <div class="px-6 my-6">
                     <button
                         class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
-                        duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-purple-700 focus:outline-none 
+                        duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none 
                         focus:shadow-outline-purple">
                         Create account
                         <span class="ml-2" aria-hidden="true">+</span>
@@ -327,7 +328,6 @@
                         <span class="ml-2" aria-hidden="true">+</span>
                     </button>
                 </div>
-            </div>
         </aside>
         <div class="flex flex-col flex-1 w-full">
             <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
@@ -435,7 +435,7 @@
                                     src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
                                     alt="" aria-hidden="true" />
                             </button>
-                            <template x-if="isProfileMenuOpen">
+                            <template x-if="isProfileMenuOpen">s
                                 <ul x-transition:leave="transition ease-in duration-150"
                                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                                     @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
@@ -489,11 +489,11 @@
             </header>
             <main class="h-full overflow-y-auto">
                 <div class="container px-6 mx-auto grid">
-                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200 text-center">
                         Dashboard
                     </h2>
                     <!-- CTA -->
-                    <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
+                    <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-blue-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
                         href="https://github.com/estevanmaito/windmill-dashboard">
                         <div class="flex items-center">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -529,11 +529,11 @@
                         <!-- Card -->
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                             <div
-                                class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+                                class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                                        clip-rule="evenodd"></path>
+                                    <path
+                                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+                                    </path>
                                 </svg>
                             </div>
                             <div>
@@ -545,25 +545,7 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- Card -->
-                        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                            <div
-                                class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    New sales
-                                </p>
-                                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    376
-                                </p>
-                            </div>
-                        </div>
+
                         <!-- Card -->
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                             <div
@@ -576,10 +558,10 @@
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Pending contacts
+                                    Izin Masuk
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    35
+                                    5
                                 </p>
                             </div>
                         </div>
@@ -613,7 +595,6 @@
                                                 <div>
                                                     <p class="font-semibold">Abdul Rio</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        10x Developer
                                                     </p>
                                                 </div>
                                             </div>
@@ -624,11 +605,11 @@
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                                Koma
+                                                Izin Acara
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            3/5/2024
                                         </td>
                                     </tr>
 
@@ -644,9 +625,9 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Dayang</p>
+                                                    <p class="font-semibold">supri</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        Unemployed
+
                                                     </p>
                                                 </div>
                                             </div>
@@ -656,12 +637,12 @@
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
-                                                class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
-                                                OTT
+                                                class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                                Izin acara
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            6/1/2022
                                         </td>
                                     </tr>
 
@@ -679,7 +660,7 @@
                                                 <div>
                                                     <p class="font-semibold">Bahlil JR</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        Designer
+
                                                     </p>
                                                 </div>
                                             </div>
@@ -689,12 +670,12 @@
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
-                                                class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                                                Makai
+                                                class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                                Demam
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            6/10/2025
                                         </td>
                                     </tr>
 
@@ -710,24 +691,24 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">EL Korek</p>
+                                                    <p class="font-semibold">Ferdi Sambo</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        Actress
+
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 1276.45
+                                            VI
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                                Approved
+                                                Izin Acara
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            2/1/2023
                                         </td>
                                     </tr>
 
@@ -743,24 +724,24 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">Ujang Darat</p>
+                                                    <p class="font-semibold">Ujang</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        Actor
+
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 863.45
+                                            XII
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
-                                                class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
-                                                Expired
+                                                class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                                Patah Kaki
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            10/12/2023
                                         </td>
                                     </tr>
 
@@ -776,24 +757,24 @@
                                                         aria-hidden="true"></div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">EL Berak</p>
+                                                    <p class="font-semibold">Soimah</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        Influencer
+
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 863.45
+                                            V
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                                Approved
+                                                Panas Dalam
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            3/1/2022
                                         </td>
                                     </tr>
 
@@ -811,22 +792,22 @@
                                                 <div>
                                                     <p class="font-semibold">Jamal</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        Runner
+
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $ 863.45
+                                            XII
                                         </td>
                                         <td class="px-4 py-3 text-xs">
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                                Approved
+                                                Kegiatan Lomba
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            6/10/2020
+                                            6/6/2024
                                         </td>
                                     </tr>
 
@@ -1023,7 +1004,7 @@
                                 labels: ['Siswa', 'Guru'],
                                 datasets: [{
                                     data: [850, 45], // Contoh data
-                                    backgroundColor: ['#6366F1', '#10B981'],
+                                    backgroundColor: ['#1E90FF', '#00FFFF'],
                                     borderWidth: 2,
                                     borderColor: '#fff',
                                     hoverOffset: 8
@@ -1053,14 +1034,14 @@
                                 labels: ['2021', '2022', '2023', '2024', '2025'],
                                 datasets: [{
                                         label: 'Siswa',
-                                        data: [450, 304, 201, 550, 610],
-                                        backgroundColor: '#6366F1',
+                                        data: [450, 304, 350, 550, 610],
+                                        backgroundColor: '#1E90FF',
                                         borderRadius: 8
                                     },
                                     {
                                         label: 'Guru',
                                         data: [40, 42, 43, 44, 45],
-                                        backgroundColor: '#10B981',
+                                        backgroundColor: '#00FFFF',
                                         borderRadius: 8
                                     }
                                 ]

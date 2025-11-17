@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\pagecontroller;
+use App\Http\Controllers\SiswaController;
 
-Route::get('/', [PageController::class, 'welcome'])->name('welcome');
-Route::get('/index', [PageController::class, 'index'])->name('index');
+Route::get('/', [pagecontroller::class, 'welcome'])->name('welcome');
+
+Route::get('/index', [pagecontroller::class, 'index'])->name('index');
+

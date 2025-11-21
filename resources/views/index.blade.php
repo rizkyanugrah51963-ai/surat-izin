@@ -44,7 +44,6 @@
         </div>
         <!-- Spinner End -->
 
-
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
@@ -58,25 +57,27 @@
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-5">
+                    <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Beranda</a>
-                        <a href="about.html" class="nav-item nav-link">Program</a>
+                        <a href="about.html" class="nav-item nav-link">Visi & Misi</a>
                         <a href="project.html" class="nav-item nav-link">Tentang Kami</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
-                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="team.html" class="dropdown-item">Hubungi</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Login</a>
+                        <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
+
                     </div>
                     <button type="button" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">
-                        <a href="Sign Up.html" class="text-light text-decoration-none">Sign Up</a>
+                        <a href="/register" class="text-light text-decoration-none">Sign Up</a>
+
                     </button>
 
                 </div>
-                
+
                 <style>
                     /* Avatar styling */
                     .profile-img {
@@ -140,8 +141,8 @@
                 <div class="container my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn">All in one SEO tool need to grow your business
-                                rapidly</h1>
+                            <h1 class="text-white mb-4 animated zoomIn">Solusi Digital Berkelas untuk Mengelola Surat
+                                Izin dengan Cepat, Aman, dan Elegan.</h1>
                             <p class="text-white pb-3 animated zoomIn">AbsenFlow membantu sekolah mengelola proses surat
                                 izin dengan lebih cepat, aman, dan terorganisir.
                                 Semua pengajuan tersimpan secara digital sehingga mudah dipantau kapan saja dan di mana
@@ -178,31 +179,33 @@
                 </div>
             </div>
         </div>
-        <!-- Full Screen Search End -->
-
-
         <!-- About Start -->
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="row g-5">
+                    <!-- KIRI: Visi & Misi -->
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
                             <h6 class="position-relative text-primary ps-4">About Us</h6>
-                            <h2 class="mt-2">The best SEO solution with 10 years of experience</h2>
+                            <h2 class="mt-2">AbsenFlow – Solusi Administrasi Sekolah Modern</h2>
                         </div>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu
-                            diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem
-                            sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Award Winning</h6>
-                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staff
-                                </h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>24/7 Support</h6>
-                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Fair Prices</h6>
-                            </div>
+                        <!-- Visi -->
+                        <div class="mb-4">
+                            <h4 class="text-primary">Visi Kami</h4>
+                            <p>
+                                Menciptakan sistem administrasi sekolah yang efisien, transparan, dan modern
+                                dengan menghilangkan proses manual yang menghambat pekerjaan.
+                            </p>
+                        </div>
+
+                        <!-- Misi -->
+                        <div class="mb-4">
+                            <h4 class="text-primary">Misi Kami</h4>
+                            <ul class="mb-0">
+                                <li>Mempermudah komunikasi antara siswa, guru, dan staf akademik.</li>
+                                <li>Memberikan akses data yang cepat, akurat, dan mudah dipantau.</li>
+                                <li>Menghadirkan solusi digital yang aman, inovatif, dan mudah diterapkan.</li>
+                            </ul>
                         </div>
                         <div class="d-flex align-items-center mt-4">
                             <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
@@ -219,7 +222,6 @@
                     <div class="col-lg-6">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s"
                             src="{{ asset('user/assets/img/siswa.png') }}" alt="Siswa">
-
                     </div>
                 </div>
             </div>
@@ -237,9 +239,8 @@
                             <div class="service-icon flex-shrink-0">
                                 <i class="fa fa-book fa-2x"></i>
                             </div>
-                            <h5 class="mb-3">Absen Online</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
-                                stet lorem.</p>
+                            <h5 class="mb-3">Absen</h5>
+                            <p>Dengan layanan absen online, pencatatan kehadiran dapat dilakukan secara real-time guna meningkatkan efisiensi administrasi.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -250,52 +251,48 @@
                             </div>
 
                             <h5 class="mb-3">Surat Izin</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
-                                stet lorem.</p>
+                            <p>Sistem surat izin dirancang untuk mempermudah proses administrasi perizinan melalui pengajuan yang lebih praktis dan transparan.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-    <i class="fa fa-chalkboard-teacher fa-2x"></i>
-</div>
+                                <i class="fa fa-chalkboard-teacher fa-2x"></i>
+                            </div>
 
-                            <h5 class="mb-3">Social Media Marketing</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
-                                stet lorem.</p>
+                            <h5 class="mb-3">Guru</h5>
+                            <p>guru adalah orang yang memandu muridnya dalam jalan menuju kebenaran.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-    <i class="fa fa-users fa-2x"></i>
-</div>
+                                <i class="fa fa-users fa-2x"></i>
+                            </div>
 
-
-                            <h5 class="mb-3">Email Marketing</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
-                                stet lorem.</p>
+                            <h5 class="mb-3">Siswa</h5>
+                            <p>siswa tersebut belajar untuk mendapatkan ilmu pengetahuan dan untuk mencapai
+pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-home fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">PPC Advertising</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
-                                stet lorem.</p>
+    <i class="fa fa-school fa-2x"></i>
+</div>
+                            <h5 class="mb-3">Sekolah</h5>
+                            <p>merupakan bangunan atau lembaga untuk belajar dan mengajar serta tempat menerima dan memberi pelajaran. </p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-home fa-2x"></i>
-                            </div>
+    <i class="fa fa-user-friends fa-2x"></i>
+</div>
                             <h5 class="mb-3">App Development</h5>
                             <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
                                 stet lorem.</p>

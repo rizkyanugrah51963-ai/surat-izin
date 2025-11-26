@@ -1,6 +1,35 @@
 @extends('layout.main')
 
 @section('content')
+
+<style>
+    /* BACKGROUND TRANSPARAN UNTUK DASHBOARD */
+    .dashboard-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/bg-surat-izin.png'); /* ganti sesuai nama file gambarmu */
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15; /* transparan */
+        z-index: 0;
+    }
+
+    /* SUPAYA KONTEN DI ATAS BACKGROUND */
+    .dashboard-content {
+        position: relative;
+        z-index: 10;
+    }
+</style>
+
+<!-- Background transparan -->
+<div class="dashboard-background"></div>
+
+<!-- Semua isi dashboard dibungkus -->
+<div class="dashboard-content">
+
 <h2 class="fw-bold">Dashboard</h2>
 
 <div class="alert alert-primary mt-3">
@@ -68,4 +97,7 @@
     </table>
   </div>
 </div>
+
+</div> <!-- Tutup dashboard-content -->
+
 @endsection

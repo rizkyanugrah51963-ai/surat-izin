@@ -41,7 +41,7 @@
             <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div>F
+        </div>
         <!-- Spinner End -->
 
         <!-- Navbar & Hero Start -->
@@ -62,7 +62,7 @@
                         <a href="about.html" class="nav-item nav-link">Visi & Misi</a>
                         <a href="project.html" class="nav-item nav-link">Tentang Kami</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bantuan</a>
                             <div class="dropdown-menu m-0">
                                 <a href="team.html" class="dropdown-item">Hubungi</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
@@ -124,11 +124,12 @@
 
                 <div class="dropdown nav-profile ms-3">
                     <a href="#" class="d-flex align-items-center" data-bs-toggle="dropdown">
-                        <img src="{{ asset('user/assets/img/team-1.jpg') }}" class="profile-img" alt="Profile">
+                        <img src="{{ asset('user/assets/img/Adudu.png') }}" class="profile-img" alt="Profile">
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end shadow">
-                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        <a href="profileController.php" class="nav-item nav-link">My Profile</a>
+
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -159,7 +160,6 @@
             </div>
         </div>
         <!-- Navbar & Hero End -->
-
 
         <!-- Full Screen Search Start -->
         <div class="modal fade" id="searchModal" tabindex="-1">

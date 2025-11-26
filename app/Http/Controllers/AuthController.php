@@ -68,10 +68,12 @@ class AuthController extends Controller
 
         // Simpan user baru
         User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'NISN' => $request->NISN,
-        ]);
+    'name'     => $request->name,
+    'email'    => $request->email,
+    'NISN'     => $request->NISN,
+    'password' => Hash::make($request->NISN), // password = NISN
+]);
+
 
         return redirect()->route('login')->with('success', 'Akun berhasil dibuat, silakan login');
     }

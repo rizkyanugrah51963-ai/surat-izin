@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
+use App\Http\Controller\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return 'Berhasil Login!';
     })->name('dashboard');
+
+    // ==== PROFILE ====
+Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
 
     /*
     |--------------------------------------------------------------------------

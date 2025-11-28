@@ -6,7 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
-use App\Http\Controllers\ForgotNisnController;   // ✔ DITAMBAHKAN BENAR
+use App\Http\Controllers\ForgotNisnController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -66,10 +66,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
-
-    // CRUD Guru
-    Route::resource('guru', GuruController::class);
-
-    // CRUD Surat Izin
-    Route::resource('surat_izin', SuratIzinController::class);
 });
+
+/*
+|--------------------------------------------------------------------------
+| CRUD Guru & Surat Izin TANPA LOGIN
+|--------------------------------------------------------------------------
+*/
+Route::resource('guru', GuruController::class);
+Route::resource('surat_izin', SuratIzinController::class);

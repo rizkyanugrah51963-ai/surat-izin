@@ -13,7 +13,7 @@
             padding: 0;
         }
 
-        /* SIDEBAR CSS */
+        /* SIDEBAR */
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -41,7 +41,7 @@
             background-color: #1d4ed8;
         }
 
-        /* NAVBAR CSS */
+        /* NAVBAR */
         .navbar {
             background-color: white;
             padding: 15px 25px;
@@ -54,45 +54,42 @@
             z-index: 100;
         }
 
-        /* KONTEN UTAMA CSS */
+        /* MAIN CONTENT */
         .main-content {
             margin-left: 250px;
             padding: 20px 40px;
             padding-top: 100px;
             min-height: 100vh;
-            position: relative;
-            z-index: 1;
         }
 
-        /* --- CSS BARU UNTUK TABEL (Membuatnya Ringkas) --- */
+        /* TABLE RESPONSIVE */
         .table-responsive {
-            overflow-x: auto; /* Memastikan tabel bisa digulir di layar kecil */
+            overflow-x: auto;
         }
 
         .data-table {
             width: 100%;
-            border-collapse: collapse; 
-            font-size: 0.9rem; /* Ukuran font lebih kecil */
+            border-collapse: collapse;
+            font-size: 0.9rem;
         }
 
         .data-table th,
         .data-table td {
             border: 1px solid #e5e7eb;
-            padding: 8px 10px; /* Mengurangi padding vertikal dan horizontal */
+            padding: 8px 10px;
             text-align: left;
         }
 
         .data-table th {
             background-color: #3b82f6;
             color: white;
-            padding: 10px 10px; /* Padding header yang disesuaikan */
+            padding: 10px;
         }
 
         .data-table tr:nth-child(even) {
-            background-color: #f3f4f6; /* Warna selang-seling */
+            background-color: #f3f4f6;
         }
-        
-        /* CSS untuk tombol 'Detail' agar seragam dengan gambar */
+
         .btn-detail {
             background-color: #3b82f6;
             color: white;
@@ -102,13 +99,12 @@
             font-size: 0.8rem;
             display: inline-block;
         }
-        /* --- AKHIR CSS TABEL BARU --- */
-
     </style>
 </head>
 
 <body>
 
+    <!-- SIDEBAR FIXED & STRUCTURE FIXED -->
     <div class="sidebar">
         <h2>Menu</h2>
 
@@ -121,13 +117,19 @@
            class="{{ request()->is('surat_izin/create') ? 'active' : '' }}">
             Tambah Surat Izin
         </a>
-        
-        </div>
 
+        <a href="{{ route('guru.index') }}"
+           class="{{ request()->is('guru') ? 'active' : '' }}">
+            Data Guru
+        </a>
+    </div>
+
+    <!-- NAVBAR -->
     <div class="navbar">
         <h3>Data Surat Izin</h3>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content">
         @yield('content')
     </div>

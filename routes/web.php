@@ -6,13 +6,13 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
-use App\Http\Controller\ProfileController;
+use App\Http\Controllers\ForgotNisnController;   // ✔ DITAMBAHKAN BENAR
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
 | Public Routes (Tanpa Login)
 |--------------------------------------------------------------------------
-| Semua halaman yang boleh diakses tanpa login disimpan di sini
 */
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/index', [PageController::class, 'index'])->name('index');
@@ -27,6 +27,14 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login/process', 'login')->name('login.process');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Forgot NISN Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])->name('forgot.nisn');
+Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])->name('forgot.nisn.post');
 
 /*
 |--------------------------------------------------------------------------
@@ -54,22 +62,14 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // ==== PROFILE ====
-Route::get('/profile', function () {
+    // Profile
+    Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
 
-    /*
-    |--------------------------------------------------------------------------
-    | CRUD Guru
-    |--------------------------------------------------------------------------
-    */
+    // CRUD Guru
     Route::resource('guru', GuruController::class);
 
-    /*
-    |--------------------------------------------------------------------------
-    | CRUD Surat Izin
-    |--------------------------------------------------------------------------
-    */
+    // CRUD Surat Izin
     Route::resource('surat_izin', SuratIzinController::class);
 });

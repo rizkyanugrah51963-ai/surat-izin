@@ -1,332 +1,290 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Sign Up - Material Register</title>
 
-        body {
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #efefef 0%, #ffffff 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
+<style>
+/* ====================== GLOBAL ====================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Roboto', sans-serif;
+}
 
-        .signup-container {
-            background: rgba(64, 109, 245, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 60px 70px;
-            max-width: 1100px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+body{
+    background:#f1f5f9;
+    display:flex;
+    justify-content:center;
+    padding:50px 15px;
+}
 
-        .signup-title {
-            color: #f8f8f8;
-            text-align: center;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
-        }
+.container{
+    width:100%;
+    max-width:700px;
+    background:white;
+    padding:40px 50px;
+    border-radius:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
 
-        .signup-form {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px 40px;
-            align-items: start;
-        }
+/* ====================== TITLE ====================== */
+.title{
+    text-align:center;
+    font-size:36px;
+    font-weight:700;
+    color:#1e40af;
+    margin-bottom:40px;
+}
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+/* ====================== GRID FORM ====================== */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
 
-        .form-label {
-            color: white;
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
-        }
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
 
-        .form-input,
-        .form-select {
-            width: 100%;
-            height: 56px;
-            padding: 0 24px;
-            border-radius: 28px;
-            border: none;
-            outline: none;
-            background: white;
-            color: #333;
-            font-size: 15px;
-            font-family: "Poppins", sans-serif;
-            transition: all 0.3s ease;
-        }
+label{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+}
 
-        .form-input:focus,
-        .form-select:focus {
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-        }
+input, select{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#f8fafc;
+    border-radius:18px;
+    font-size:15px;
+    outline:none;
+    box-shadow:0 0 0 1px #e2e8f0 inset;
+    transition:.2s;
+}
 
-        .form-select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23666' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-            background-size: 14px;
-            cursor: pointer;
-        }
+input:focus, select:focus{
+    box-shadow:0 0 0 2px #2563eb inset;
+}
 
-        .button-wrapper {
-            grid-column: 2 / 3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-        }
+/* ====================== REGISTER BUTTON ====================== */
+.btn-submit{
+    grid-column:span 2;
+    margin-top:20px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:26px;
+    font-weight:700;
+    cursor:pointer;
+    width:190px;
+    height:85px;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.2);
+    transition:.3s;
+}
 
-        .submit-button {
-            width: 180px;
-            height: 70px;
-            background: white;
-            color: #333;
-            border-radius: 35px;
-            font-size: 24px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            font-family: "Poppins", sans-serif;
-        }
+.btn-submit:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
 
-        .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-            background: #f9f9f9;
-        }
+.success-box{
+    display:none;
+    text-align:center;
+    padding:25px;
+    background:#e0ffe1;
+    border-radius:15px;
+    border:2px solid #16a34a;
+    margin-top:30px;
+}
 
-        .submit-button:active {
-            transform: translateY(-1px);
-        }
+.success-box h3{
+    color:#166534;
+    font-size:24px;
+    font-weight:700;
+}
 
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .signup-form {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .button-wrapper {
-                grid-column: 1 / -1;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .signup-container {
-                padding: 40px 25px;
-            }
-
-            .signup-title {
-                font-size: 36px;
-                margin-bottom: 35px;
-            }
-
-            .signup-form {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .button-wrapper {
-                grid-column: 1;
-                margin-top: 5px;
-            }
-
-            .submit-button {
-                width: 100%;
-                max-width: 200px;
-            }
-        }
-    </style>
+</style>
 </head>
+
 <body>
-    <div class="signup-container">
-        <h1 class="signup-title">Sign up</h1>
-        
-        <form class="signup-form" id="signupForm" action="{{ route('registrasi.store') }}" method="POST">
-    @csrf
 
-            <!-- Username -->
-            <div class="form-group">
-                <label class="form-label">Username</label>
-                <input type="text" class="form-input" name="username" required>
-            </div>
+<div class="container">
 
-            <!-- Provinsi -->
-            <div class="form-group">
-                <label class="form-label">Provinsi</label>
-                <select class="form-select" id="provinsi" name="provinsi" required>
-                    <option value="">-- Pilih --</option>
-                    <option value="aceh">Aceh</option>
-                    <option value="sumut">Sumatera Utara</option>
-                    <option value="sumbar">Sumatera Barat</option>
-                    <option value="riau">Riau</option>
-                    <option value="jambi">Jambi</option>
-                </select>
-            </div>
+    <div class="title">Sign Up</div>
 
-            <!-- Kecamatan -->
-            <div class="form-group">
-                <label class="form-label">Kecamatan</label>
-                <select class="form-select" id="kecamatan" name="kecamatan" required>
-                    <option value="">-- Pilih --</option>
-                </select>
-            </div>
+    <form id="registerForm" class="grid">
 
-            <!-- Email -->
-            <div class="form-group">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-input" name="email" required>
-            </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" required>
+        </div>
 
-            <!-- Kabupaten -->
-            <div class="form-group">
-                <label class="form-label">Kabupaten</label>
-                <select class="form-select" id="kabupaten" name="kabupaten" required>
-                    <option value="">-- Pilih --</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" required>
+        </div>
 
-            <!-- Pilih Jenjang -->
-            <div class="form-group">
-                <label class="form-label">Pilih Jenjang</label>
-                <select class="form-select" id="jenjang" name="jenjang" required>
-                    <option value="">-- Pilih --</option>
-                    <option value="sd">SD</option>
-                    <option value="smp">SMP</option>
-                    <option value="sma">SMA</option>
-                    <option value="smk">SMK</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label>Masukan NISN Anda</label>
+            <input type="password" id="password" required>
+        </div>
 
-            <!-- NISN -->
-            <div class="form-group">
-                <label class="form-label">NISN</label>
-                <input type="text" class="form-input" name="nisn" pattern="[0-9]*" required>
-            </div>
+        <div class="form-group">
+            <label>Konfirmasi NISN Anda</label>
+            <input type="password" id="confirmPassword" required>
+        </div>
 
-            <!-- Button Daftar -->
-            <div class="button-wrapper">
-                <button type="submit" class="submit-button">Daftar</button>
-            </div>
+        <div class="form-group">
+            <label>Provinsi</label>
+            <select id="provinsi">
+                <option value="">-- Pilih Provinsi --</option>
+            </select>
+        </div>
 
-            <!-- Pilih Sekolah -->
-            <div class="form-group">
-                <label class="form-label">Pilih Sekolah</label>
-                <select class="form-select" id="sekolah" name="sekolah" required>
-                    <option value="">-- Pilih --</option>
-                </select>
-            </div>
-        </form>
+        <div class="form-group">
+            <label>Kabupaten</label>
+            <select id="kabupaten">
+                <option value="">-- Pilih Kabupaten --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Kecamatan</label>
+            <select id="kecamatan">
+                <option value="">-- Pilih Kecamatan --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Pilih Jenjang</label>
+            <select id="jenjang">
+                <option value="">-- Pilih Jenjang --</option>
+                <option>SD</option>
+                <option>SMP</option>
+                <option>SMA</option>
+                <option>SMK</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Pilih Sekolah</label>
+            <select id="sekolah">
+                <option value="">-- Pilih Sekolah --</option>
+            </select>
+        </div>
+
+
+        <!-- BUTTON -->
+        <button type="submit" class="btn-submit">Daftar</button>
+
+    </form>
+
+    <!-- SUCCESS BOX -->
+    <div class="success-box" id="successBox">
+        <h3>Registrasi Berhasil!</h3>
+        <p>Akun kamu sudah dibuat.</p>
     </div>
 
-    <script>
-        // Data cascade untuk provinsi -> kabupaten -> kecamatan
-        const locationData = {
-            'aceh': {
-                name: 'Aceh',
-                kabupaten: {
-                    'banda-aceh': { name: 'Banda Aceh', kecamatan: ['Baiturrahman', 'Kuta Alam', 'Meuraxa'] },
-                    'aceh-besar': { name: 'Aceh Besar', kecamatan: ['Lembah Seulawah', 'Lhoong', 'Peukan Bada'] }
-                }
-            },
-            'sumut': {
-                name: 'Sumatera Utara',
-                kabupaten: {
-                    'medan': { name: 'Medan', kecamatan: ['Medan Baru', 'Medan Kota', 'Medan Timur'] },
-                    'deli-serdang': { name: 'Deli Serdang', kecamatan: ['Lubuk Pakam', 'Pancur Batu', 'Sibolangit'] }
-                }
-            }
-        };
+</div>
 
-        const schoolsByJenjang = {
-            'sd': ['SDN 1 Contoh', 'SDN 2 Contoh', 'SD Swasta Contoh'],
-            'smp': ['SMPN 1 Contoh', 'SMPN 2 Contoh', 'SMP Swasta Contoh'],
-            'sma': ['SMAN 1 Contoh', 'SMAN 2 Contoh', 'SMA Swasta Contoh'],
-            'smk': ['SMKN 1 Contoh', 'SMKN 2 Contoh', 'SMK Swasta Contoh']
-        };
+<!-- ====================== JAVASCRIPT ====================== -->
+<script>
 
-        const provinsiSelect = document.getElementById('provinsi');
-        const kabupatenSelect = document.getElementById('kabupaten');
-        const kecamatanSelect = document.getElementById('kecamatan');
-        const jenjangSelect = document.getElementById('jenjang');
-        const sekolahSelect = document.getElementById('sekolah');
+// ================= DATA SIMULASI =================
+const dataAlamat = {
+    "Jawa Barat":{
+        "Bandung":{
+            "Coblong":["SDN 1","SMPN 2","SMAN 3","SMKN 4"],
+            "Antapani":["SD Antapani","SMP Mandiri","SMAN 22"]
+        },
+        "Bogor":{
+            "Cibinong":["SD Cibinong","SMP Cibinong","SMK Cibinong"]
+        }
+    },
 
-        // Update kabupaten berdasarkan provinsi
-        provinsiSelect.addEventListener('change', function() {
-            kabupatenSelect.innerHTML = '<option value="">-- Pilih --</option>';
-            kecamatanSelect.innerHTML = '<option value="">-- Pilih --</option>';
-            
-            const provinsi = this.value;
-            if (provinsi && locationData[provinsi]) {
-                Object.keys(locationData[provinsi].kabupaten).forEach(key => {
-                    const option = document.createElement('option');
-                    option.value = key;
-                    option.textContent = locationData[provinsi].kabupaten[key].name;
-                    kabupatenSelect.appendChild(option);
-                });
-            }
+    "Jawa Tengah":{
+        "Semarang":{
+            "Tembalang":["SD Tembalang","SMP Tembalang","SMA Tembalang"]
+        }
+    }
+};
+
+// ==================== DOM ELEMENT ====================
+const provinsi = document.getElementById("provinsi");
+const kabupaten = document.getElementById("kabupaten");
+const kecamatan = document.getElementById("kecamatan");
+const sekolah = document.getElementById("sekolah");
+
+// ==================== LOAD PROVINSI ====================
+for(let p in dataAlamat){
+    provinsi.innerHTML += `<option>${p}</option>`;
+}
+
+// ==================== CHANGE PROVINSI ====================
+provinsi.addEventListener("change", ()=>{
+    kabupaten.innerHTML = `<option>-- Pilih Kabupaten --</option>`;
+    kecamatan.innerHTML = `<option>-- Pilih Kecamatan --</option>`;
+    sekolah.innerHTML = `<option>-- Pilih Sekolah --</option>`;
+
+    if(provinsi.value){
+        const listKab = Object.keys(dataAlamat[provinsi.value]);
+        listKab.forEach(k=>{
+            kabupaten.innerHTML += `<option>${k}</option>`;
         });
+    }
+});
 
-        // Update kecamatan berdasarkan kabupaten
-        kabupatenSelect.addEventListener('change', function() {
-            kecamatanSelect.innerHTML = '<option value="">-- Pilih --</option>';
-            
-            const provinsi = provinsiSelect.value;
-            const kabupaten = this.value;
-            
-            if (provinsi && kabupaten && locationData[provinsi]?.kabupaten[kabupaten]) {
-                locationData[provinsi].kabupaten[kabupaten].kecamatan.forEach(kec => {
-                    const option = document.createElement('option');
-                    option.value = kec.toLowerCase().replace(/\s+/g, '-');
-                    option.textContent = kec;
-                    kecamatanSelect.appendChild(option);
-                });
-            }
-        });
+// ==================== CHANGE KABUPATEN ====================
+kabupaten.addEventListener("change", ()=>{
+    kecamatan.innerHTML = `<option>-- Pilih Kecamatan --</option>`;
+    sekolah.innerHTML = `<option>-- Pilih Sekolah --</option>`;
 
-        // Update sekolah berdasarkan jenjang
-        jenjangSelect.addEventListener('change', function() {
-            sekolahSelect.innerHTML = '<option value="">-- Pilih --</option>';
-            
-            const jenjang = this.value;
-            if (jenjang && schoolsByJenjang[jenjang]) {
-                schoolsByJenjang[jenjang].forEach(sekolah => {
-                    const option = document.createElement('option');
-                    option.value = sekolah.toLowerCase().replace(/\s+/g, '-');
-                    option.textContent = sekolah;
-                    sekolahSelect.appendChild(option);
-                });
-            }
+    if(kabupaten.value){
+        const listKec = Object.keys(dataAlamat[provinsi.value][kabupaten.value]);
+        listKec.forEach(k=>{
+            kecamatan.innerHTML += `<option>${k}</option>`;
         });
+    }
+});
 
-        // Handle form submission
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Form berhasil disubmit! (Demo mode)');
+// ==================== CHANGE KECAMATAN ====================
+kecamatan.addEventListener("change", ()=>{
+    sekolah.innerHTML = `<option>-- Pilih Sekolah --</option>`;
+
+    if(kecamatan.value){
+        const listSek = dataAlamat[provinsi.value][kabupaten.value][kecamatan.value];
+        listSek.forEach(s=>{
+            sekolah.innerHTML += `<option>${s}</option>`;
         });
-    </script>
+    }
+});
+
+// ====================== HANDLE SUBMIT ======================
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    if(document.getElementById("password").value !== document.getElementById("confirmPassword").value){
+        alert("Password tidak sama!");
+        return;
+    }
+
+    document.getElementById("successBox").style.display = "block";
+});
+
+</script>
+
 </body>
 </html>

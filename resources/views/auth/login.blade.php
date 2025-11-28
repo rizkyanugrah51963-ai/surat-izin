@@ -382,8 +382,8 @@
             <!-- PASSWORD FIELD -->
             <div class="form-group">
                 <div class="input-wrapper password-wrapper">
-                    <input type="password" id="password" name="password" required autocomplete="current-password">
-                    <label for="password">Password</label>
+                    <input type="NISN" id="NISN" name="NISN" required autocomplete="current-password">
+                    <label for="NISN">NISN</label>
                     <button type="button" class="password-toggle" id="passwordToggle">
                         <span class="toggle-icon">👁️</span>
                     </button>
@@ -392,16 +392,12 @@
             </div>
 
             <!-- OPTIONS -->
-            <div class="form-options">
-                <div class="checkbox-wrapper">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember" class="checkbox-label">
-                        Keep me signed in
-                    </label>
-                </div>
+                <div class="form-options two-sides">
+    <a href="{{ route('register') }}" class="left-link">REGISTER</a>
 
-                <a href="#" class="forgot-password">FORGOT PASSWORD?</a>
-            </div>
+    <a href="{{ route('forgot.nisn') }}" class="right-link">LUPA NISN?</a>
+</div>
+
 
             <!-- BUTTON LOGIN -->
             <button type="submit" class="material-btn">

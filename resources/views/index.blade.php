@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/style(1).css') }}">
 </head>
 
 <body>
@@ -64,7 +64,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bantuan</a>
                             <div class="dropdown-menu m-0">
-                                <a href="team.html" class="dropdown-item">Hubungi</a>
+                                <a href="user.team.html" class="dropdown-item">Hubungi</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                     </div>
                     <div class="col-lg-6">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s"
-                            src="{{ asset('user/assets/img/siswa.png') }}" alt="Siswa">
+                            src="{{ asset('user/assets/img/gambar2.png') }}" alt="Siswa">
                     </div>
                 </div>
             </div>
@@ -451,12 +451,11 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('img/Apple-logo.png') }}"
-                                    alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-1.jpg') }}" alt="">
                             </div>
                             <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Jhon Doe</h5>
-                                <small>CEO</small>
+                                <h5 class="fw-bold m-0">Khairul Ikhsan</h5>
+                                <small>Anggota</small>
                             </div>
                         </div>
                     </div>
@@ -474,11 +473,11 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="img/team-2.jpg" alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/lelek2.png') }}" alt="">
                             </div>
                             <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Emma William</h5>
-                                <small>Manager</small>
+                                <h5 class="fw-bold m-0">Rizki Anungrah Ramadhan</h5>
+                                <small>Koordinator</small>
                             </div>
                         </div>
                     </div>
@@ -496,11 +495,11 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="img/team-3.jpg" alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-3.jpg') }}" alt="">
                             </div>
                             <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Noah Michael</h5>
-                                <small>Designer</small>
+                                <h5 class="fw-bold m-0">Fairina</h5>
+                                <small>Anggota</small>
                             </div>
                         </div>
                     </div>

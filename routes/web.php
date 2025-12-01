@@ -8,6 +8,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\ForgotNisnController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriIzinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,8 +71,9 @@ Route::middleware('auth')->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| CRUD Guru & Surat Izin TANPA LOGIN
+| CRUD Guru, Surat Izin, dan Kategori Izin
 |--------------------------------------------------------------------------
 */
 Route::resource('guru', GuruController::class);
 Route::resource('surat_izin', SuratIzinController::class);
+Route::resource('kategori-izin', KategoriIzinController::class);

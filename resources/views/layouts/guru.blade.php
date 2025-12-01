@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Surat Izin</title>
+    <title>Data Kategori Izin</title>
 
     <style>
         body {
@@ -109,20 +109,20 @@
     <div class="sidebar">
         <h2>Menu</h2>
 
-        <a href="{{ route('surat_izin.index') }}"
-           class="{{ request()->is('surat_izin') ? 'active' : '' }}">
-            Data Surat Izin
+        <a href="{{ route('kategori-izin.index') }}"
+           class="{{ request()->is('kategori-izin') ? 'active' : '' }}">
+            Data Kategori Izin
         </a>
 
-        <a href="{{ route('surat_izin.create') }}"
-           class="{{ request()->is('surat_izin/create') ? 'active' : '' }}">
-            Tambah Surat Izin
+        <a href="{{ route('kategori-izin.create') }}"
+           class="{{ request()->is('kategori-izin/create') ? 'active' : '' }}">
+            Tambah Kategori Izin
         </a>
 
     </div>
 
     <div class="navbar">
-        <h3>Data Surat Izin</h3>
+        <h3>@yield('title', 'Data Kategori Izin')</h3>
     </div>
 
     <div class="main-content">

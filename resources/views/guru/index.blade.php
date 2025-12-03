@@ -39,7 +39,6 @@
 </div>
 
 <style>
-/* Tombol Tambah */
 .btn-dashboard {
     background-color: #2563eb;
     color: white;
@@ -50,7 +49,6 @@
 }
 .btn-dashboard:hover { background-color: #1d4ed8; }
 
-/* Table Card */
 .table-card {
     background: white;
     border-radius: 8px;
@@ -83,7 +81,6 @@
     background-color: #f3f4f6;
 }
 
-/* Tombol Edit & Hapus */
 .btn-edit {
     background-color: #facc15;
     color: black;

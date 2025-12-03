@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Data Guru</title>
+    <title>Data Kategori Izin</title>
 
     <style>
         body {
@@ -14,7 +13,7 @@
             padding: 0;
         }
 
-        /* SIDEBAR */
+        /* SIDEBAR CSS */
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -25,10 +24,6 @@
             left: 0;
             padding: 20px;
             z-index: 9999;
-        }
-
-        .sidebar h2 {
-            margin-bottom: 20px;
         }
 
         .sidebar a {
@@ -46,20 +41,20 @@
             background-color: #1d4ed8;
         }
 
-        /* NAVBAR */
+        /* NAVBAR CSS */
         .navbar {
             background-color: white;
             padding: 15px 25px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
             margin-left: 250px;
             position: fixed;
             top: 0;
             right: 0;
             left: 250px;
-            z-index: 500;
+            z-index: 100;
         }
 
-        /* KONTEN */
+        /* KONTEN UTAMA CSS */
         .main-content {
             margin-left: 250px;
             padding: 20px 40px;
@@ -68,36 +63,71 @@
             position: relative;
             z-index: 1;
         }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse; 
+            font-size: 0.9rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 10px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f3f4f6;
+        }
+
+        .btn-detail {
+            background-color: #3b82f6;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
-        <h2>Menu Guru</h2>
+        <h2>Menu</h2>
 
-        <a href="{{ route('guru.index') }}"
-            class="{{ request()->is('guru') ? 'active' : '' }}">
-            Data Guru
+        <a href="{{ route('kategori-izin.index') }}"
+           class="{{ request()->is('kategori-izin') ? 'active' : '' }}">
+            Data Kategori Izin
         </a>
 
-        <a href="{{ route('guru.create') }}"
-            class="{{ request()->is('guru/create') ? 'active' : '' }}">
-            Tambah Guru
+        <a href="{{ route('kategori-izin.create') }}"
+           class="{{ request()->is('kategori-izin/create') ? 'active' : '' }}">
+            Tambah Kategori Izin
         </a>
+
     </div>
 
-    <!-- NAVBAR -->
     <div class="navbar">
-        <h3>Aplikasi Data Guru</h3>
+        <h3>@yield('title', 'Data Kategori Izin')</h3>
     </div>
 
-    <!-- KONTEN UTAMA -->
     <div class="main-content">
         @yield('content')
     </div>
 
 </body>
-
 </html>

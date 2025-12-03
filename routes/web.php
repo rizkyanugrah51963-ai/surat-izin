@@ -8,6 +8,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\ForgotNisnController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriIzinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,12 +63,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
     Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
-});
 
-/*
-|--------------------------------------------------------------------------
-| CRUD Guru & Surat Izin (Public)
-|--------------------------------------------------------------------------
-*/
-Route::resource('guru', GuruController::class);
-Route::resource('surat_izin', SuratIzinController::class);
+    /*
+    |--------------------------------------------------------------------------
+    | CRUD Guru, Surat Izin, dan Kategori Izin
+    |--------------------------------------------------------------------------
+    */
+    Route::resource('guru', GuruController::class);
+    Route::resource('surat_izin', SuratIzinController::class);
+    Route::resource('kategori-izin', KategoriIzinController::class);
+});

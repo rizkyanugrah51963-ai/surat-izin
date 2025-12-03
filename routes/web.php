@@ -11,7 +11,7 @@ use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
-| Public Routes (Tanpa Login)
+| Public Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
@@ -19,18 +19,21 @@ Route::get('/index', [PageController::class, 'index'])->name('index');
 
 /*
 |--------------------------------------------------------------------------
-| Authentication Routes
+| Authentication
 |--------------------------------------------------------------------------
 */
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'showLogin')->name('login');
     Route::post('/login/process', 'login')->name('login.process');
     Route::post('/logout', 'logout')->name('logout');
+
+    Route::get('/register', 'showRegister')->name('register');
+    Route::post('/register', 'register')->name('register.post');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Forgot NISN Routes
+| Forgot NISN
 |--------------------------------------------------------------------------
 */
 Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])->name('forgot.nisn');
@@ -38,17 +41,13 @@ Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])->name('fo
 
 /*
 |--------------------------------------------------------------------------
-| Registrasi Routes
+| Registrasi
 |--------------------------------------------------------------------------
 */
 Route::controller(RegistrasiController::class)->group(function () {
     Route::get('/registrasi', 'showForm')->name('registrasi.form');
     Route::post('/registrasi', 'store')->name('registrasi.store');
 });
-
-// Alternatif register (punya AuthController)
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 /*
 |--------------------------------------------------------------------------
@@ -57,20 +56,17 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 */
 Route::middleware('auth')->group(function () {
 
-    // Dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // Profile
-    Route::get('/profile', function () {
-        return view('profile');
-    })->name('profile');
+    Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
+    Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
 });
 
 /*
 |--------------------------------------------------------------------------
-| CRUD Guru & Surat Izin TANPA LOGIN
+| CRUD Guru & Surat Izin (Public)
 |--------------------------------------------------------------------------
 */
 Route::resource('guru', GuruController::class);

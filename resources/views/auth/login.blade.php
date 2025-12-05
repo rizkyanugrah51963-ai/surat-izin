@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,7 @@
         .login-card {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
             padding: 40px;
         }
 
@@ -125,8 +126,8 @@
             transition: all 0.2s;
         }
 
-        .input-wrapper input:focus + label,
-        .input-wrapper input:valid + label {
+        .input-wrapper input:focus+label,
+        .input-wrapper input:valid+label {
             top: -8px;
             font-size: 12px;
             color: #1a73e8;
@@ -149,7 +150,7 @@
         }
 
         .password-toggle:hover {
-            background: rgba(0,0,0,0.04);
+            background: rgba(0, 0, 0, 0.04);
             border-radius: 50%;
         }
 
@@ -210,7 +211,7 @@
 
         .material-btn:hover {
             background: #1557b0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         }
 
         .material-btn:active {
@@ -267,7 +268,7 @@
 
         .social-btn:hover {
             background: #f8f9fa;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
         }
 
         .social-icon {
@@ -319,6 +320,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -343,170 +345,172 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="login-container">
-    <div class="login-card">
+    <div class="login-container">
+        <div class="login-card">
 
-        <!-- LOGO -->
-        <div class="login-header">
-            <div class="material-logo">
-                <div class="logo-layers">
-                    <div class="layer layer-1"></div>
-                    <div class="layer layer-2"></div>
-                    <div class="layer layer-3"></div>
+            <!-- LOGO -->
+            <div class="login-header">
+                <div class="material-logo">
+                    <div class="logo-layers">
+                        <div class="layer layer-1"></div>
+                        <div class="layer layer-2"></div>
+                        <div class="layer layer-3"></div>
+                    </div>
                 </div>
-            </div>
-            <h2>Sign in</h2>
-            <p>to continue to your account</p>
-        </div>
-
-        <!-- SUCCESS MESSAGE -->
-        <div id="successMessage" class="success-message">
-            <h3>Welcome back!</h3>
-            <p>Signing you in...</p>
-        </div>
-
-        <!-- LOGIN FORM -->
-        <form id="loginForm">
-
-            <!-- EMAIL FIELD -->
-            <div class="form-group">
-                <div class="input-wrapper">
-                    <input type="email" id="email" name="email" required autocomplete="email">
-                    <label for="email">Email</label>
-                </div>
-                <span class="error-message" id="emailError">Please enter a valid email</span>
+                <h2>Sign in</h2>
+                <p>to continue to your account</p>
             </div>
 
-            <!-- PASSWORD FIELD -->
-            <div class="form-group">
-                <div class="input-wrapper password-wrapper">
-                    <input type="NISN" id="NISN" name="NISN" required autocomplete="current-password">
-                    <label for="NISN">NISN</label>
-                    <button type="button" class="password-toggle" id="passwordToggle">
-                        <span class="toggle-icon">👁️</span>
-                    </button>
-                </div>
-                <span class="error-message" id="passwordError">Password is required</span>
+            <!-- SUCCESS MESSAGE -->
+            <div id="successMessage" class="success-message">
+                <h3>Welcome back!</h3>
+                <p>Signing you in...</p>
             </div>
 
-            <!-- OPTIONS -->
+            <!-- LOGIN FORM -->
+            <form id="loginForm">
+
+                <!-- EMAIL FIELD -->
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <span class="error-message" id="emailError">Please enter a valid email</span>
+                </div>
+
+                <!-- PASSWORD FIELD -->
+                <div class="form-group">
+                    <div class="input-wrapper password-wrapper">
+                        <input type="NISN" id="NISN" name="NISN" required autocomplete="current-password">
+                        <label for="NISN">NISN</label>
+                        <button type="button" class="password-toggle" id="passwordToggle">
+                            <span class="toggle-icon">👁️</span>
+                        </button>
+                    </div>
+                    <span class="error-message" id="passwordError">Password is required</span>
+                </div>
+
+                <!-- OPTIONS -->
                 <div class="form-options two-sides">
-    <a href="{{ route('register') }}" class="left-link">REGISTER</a>
+                    <a href="{{ route('register') }}" class="left-link">REGISTER</a>
 
-    <a href="{{ route('forgot.nisn') }}" class="right-link">LUPA NISN?</a>
-</div>
-
-
-            <!-- BUTTON LOGIN -->
-            <button type="submit" class="material-btn">
-                <span class="btn-text">SIGN IN</span>
-            </button>
-        </form>
-
-        <!-- DIVIDER -->
-        <div class="divider"><span>or</span></div>
-
-        <!-- SOCIAL LOGIN -->
-        <div class="social-login">
-            <button type="button" class="social-btn google-material">
-                <div class="social-icon google-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path fill="#4285F4"
-                              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                        <path fill="#34A853"
-                              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                        <path fill="#FBBC05"
-                              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                        <path fill="#EA4335"
-                              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
+                    <a href="{{ route('forgot.nisn') }}" class="right-link">LUPA NISN?</a>
                 </div>
-                <span>Continue with Google</span>
-            </button>
 
-            <button type="button" class="social-btn facebook-material">
-                <div class="social-icon facebook-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path fill="#1877F2"
-                              d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.387 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                </div>
-                <span>Continue with Facebook</span>
-            </button>
+
+                <!-- BUTTON LOGIN -->
+                <button type="submit" class="material-btn">
+                    <span class="btn-text">SIGN IN</span>
+                </button>
+            </form>
+
+            <!-- DIVIDER -->
+            <div class="divider"><span>or</span></div>
+
+            <!-- SOCIAL LOGIN -->
+            <div class="social-login">
+                <button type="button" class="social-btn google-material">
+                    <div class="social-icon google-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="#4285F4"
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path fill="#34A853"
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path fill="#FBBC05"
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path fill="#EA4335"
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                    </div>
+                    <span>Continue with Google</span>
+                </button>
+
+                <button type="button" class="social-btn facebook-material">
+                    <div class="social-icon facebook-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="#1877F2"
+                                d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.387 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </div>
+                    <span>Continue with Facebook</span>
+                </button>
+            </div>
+
+            <div class="signup-link">
+                <p>Don't have an account?
+                    <a href="#" class="create-account">Create account</a>
+                </p>
+            </div>
+
         </div>
-
-        <div class="signup-link">
-            <p>Don't have an account?
-                <a href="#" class="create-account">Create account</a>
-            </p>
-        </div>
-
     </div>
-</div>
 
-<script>
-    // Password Toggle
-    const passwordToggle = document.getElementById('passwordToggle');
-    const passwordInput = document.getElementById('password');
-    
-    passwordToggle.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.querySelector('.toggle-icon').textContent = type === 'password' ? '👁️' : '👁️‍🗨️';
-    });
+    <script>
+        // Password Toggle
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('password');
 
-    // Form Validation
-    const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const successMessage = document.getElementById('successMessage');
+        passwordToggle.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.querySelector('.toggle-icon').textContent = type === 'password' ? '👁️' : '👁️‍🗨️';
+        });
 
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        let isValid = true;
-        
-        // Validate email
-        if (!emailInput.value || !emailInput.value.includes('@')) {
-            emailError.classList.add('show');
-            isValid = false;
-        } else {
+        // Form Validation
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const successMessage = document.getElementById('successMessage');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Validate email
+            if (!emailInput.value || !emailInput.value.includes('@')) {
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                emailError.classList.remove('show');
+            }
+
+            // Validate password
+            if (!passwordInput.value) {
+                passwordError.classList.add('show');
+                isValid = false;
+            } else {
+                passwordError.classList.remove('show');
+            }
+
+            if (isValid) {
+                // Show success message
+                successMessage.classList.add('show');
+
+                // Simulate login
+                setTimeout(() => {
+                    alert('Login successful! (This is a demo)');
+                    loginForm.reset();
+                    successMessage.classList.remove('show');
+                }, 1500);
+            }
+        });
+
+        // Remove error on input
+        emailInput.addEventListener('input', function() {
             emailError.classList.remove('show');
-        }
-        
-        // Validate password
-        if (!passwordInput.value) {
-            passwordError.classList.add('show');
-            isValid = false;
-        } else {
+        });
+
+        passwordInput.addEventListener('input', function() {
             passwordError.classList.remove('show');
-        }
-        
-        if (isValid) {
-            // Show success message
-            successMessage.classList.add('show');
-            
-            // Simulate login
-            setTimeout(() => {
-                alert('Login successful! (This is a demo)');
-                loginForm.reset();
-                successMessage.classList.remove('show');
-            }, 1500);
-        }
-    });
-
-    // Remove error on input
-    emailInput.addEventListener('input', function() {
-        emailError.classList.remove('show');
-    });
-
-    passwordInput.addEventListener('input', function() {
-        passwordError.classList.remove('show');
-    });
-</script>
+        });
+    </script>
 
 </body>
+
 </html>

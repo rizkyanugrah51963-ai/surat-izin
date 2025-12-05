@@ -4,7 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class registrasi extends Model
+class Registrasi extends Model
 {
-    //
+    protected $table = 'registrasi';
+
+    protected $fillable = [
+        'username',
+        'email',
+        'nisn',
+        'provinsi',
+        'kabupaten',
+        'kecamatan',
+        'jenjang',
+        'sekolah',
+    ];
 }

@@ -67,10 +67,11 @@
                             <p class="text-sm text-gray-600">Akun anda</p>
                             <p class="text-sm font-semibold text-gray-900">{{ Auth::user()->email ?? '-' }}</p>
                         </div>
-                        <a href="{{ route('profile.profile') }}"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
-                            Profil
-                        </a>
+<a href="{{ route('profile') }}"
+   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
+    Profil
+</a>
+
                         <div class="border-t"></div>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

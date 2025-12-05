@@ -13,7 +13,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\LoginSiswaController;
 /*
 |--------------------------------------------------------------------------
-| PUBLIC ROUTES (TANPA LOGIN)
+| Public Routes (Tanpa Login)
 |--------------------------------------------------------------------------
 */
 
@@ -35,15 +35,18 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 /*
 |--------------------------------------------------------------------------
-| REGISTRASI (SISWA REGISTER)
+| Authentication Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/registrasi', [RegistrasiController::class, 'showForm'])->name('registrasi.form');
-Route::post('/registrasi', [RegistrasiController::class, 'store'])->name('registrasi.store');
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'showLogin')->name('login');
+    Route::post('/login/process', 'login')->name('login.process');
+    Route::post('/logout', 'logout')->name('logout');
+});
 
 /*
 |--------------------------------------------------------------------------
-| LUPA NISN
+| Forgot NISN Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])->name('forgot.nisn');
@@ -51,12 +54,25 @@ Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])->name('fo
 
 /*
 |--------------------------------------------------------------------------
-| PROTECTED ROUTES (WAJIB LOGIN)
+| Registrasi Routes
+|--------------------------------------------------------------------------
+*/
+Route::controller(RegistrasiController::class)->group(function () {
+    Route::get('/registrasi', 'showForm')->name('registrasi.form');
+    Route::post('/registrasi', 'store')->name('registrasi.store');
+});
+
+// Alternatif register (punya AuthController)
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+/*
+|--------------------------------------------------------------------------
+| Protected Routes (Wajib Login)
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth')->group(function () {
 
-    // Dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -65,13 +81,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
-
-    // CRUD
-    Route::resource('guru', GuruController::class);
-    Route::resource('surat_izin', SuratIzinController::class);
-    Route::resource('kategori-izin', KategoriIzinController::class);
-    Route::resource('siswa', SiswaController::class);
 });
-// REGISTER
-Route::get('/register', [RegistrasiController::class, 'showForm'])->name('register');
-Route::post('/register', [RegistrasiController::class, 'store'])->name('register.post');
+
+/*
+|--------------------------------------------------------------------------
+| CRUD Guru, Surat Izin, dan Kategori Izin
+|--------------------------------------------------------------------------
+*/
+Route::resource('guru', GuruController::class);
+Route::resource('surat_izin', SuratIzinController::class);
+Route::resource('kategori-izin', KategoriIzinController::class);

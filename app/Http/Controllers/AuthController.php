@@ -1,80 +1,59 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 class AuthController extends Controller
 {
-    // =======================
-    // TAMPILKAN FORM LOGIN
-    // =======================
-    public function showLogin()
+public function showLogin()
+{
+return view('auth.login', ['title' => 'Login']);
+}
+public function login(Request $request)
     {
-        return view('auth.login');
-    }
-
-    // =======================
-    // PROSES LOGIN
-    // =======================
-    public function login(Request $request)
-    {
-        // validasi
-        $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required'
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string']
         ]);
 
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard')->with('success', 'Login berhasil!');
         }
 
-        return back()->with('error', 'Email atau Password salah');
-    }
-
-    // =======================
-    // LOGOUT
-    // =======================
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('login');
-    }
-
-    // =======================
-    // SHOW REGISTER
-    // =======================
-    public function showRegister()
-    {
-        return view('auth.register');
-    }
-
-    // =======================
-    // PROSES REGISTER
-    // =======================
-    public function register(Request $request)
-    {
-        // Validasi
-        $request->validate([
-            'name'     => 'required|min:3',
-            'email'    => 'required|email|unique:users,email',
-            'NISN' => 'required|min:5|confirmed',
+        throw ValidationException::withMessages([
+            'email' => __('auth.failed'),
         ]);
-
-        // Simpan user baru
-        User::create([
-    'name'     => $request->name,
-    'email'    => $request->email,
-    'NISN'     => $request->NISN,
-    'password' => Hash::make($request->NISN), // password = NISN
+}
+public function showRegister(): View
+{
+return view('auth.register', ['title' => 'Daftar']);
+}
+public function register(Request $request): RedirectResponse
+{
+$validated = $request->validate([
+'name' => 'required|string|min:3|max:100',
+'email' => 'required|email|unique:users,email',
+'password' => ['required', 'confirmed', Password::defaults()]
 ]);
-
-
-        return redirect()->route('login')->with('success', 'Akun berhasil dibuat, silakan login');
-    }
+User::create([
+'name' => $validated['name'],
+'email' => $validated['email'],
+'password' => Hash::make($validated['password']),
+]);
+return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
+}
+public function logout(Request $request): RedirectResponse
+{
+Auth::logout();
+$request->session()->invalidate();
+$request->session()->regenerateToken();
+return redirect()->route('login')->with('success', 'Anda telah logout.');
+}
 }

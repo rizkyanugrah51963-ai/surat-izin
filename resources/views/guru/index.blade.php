@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="content-wrapper">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-        <h1>Data Guru</h1>
-        <a href="{{ route('guru.create') }}" class="btn-dashboard">Tambah Guru</a>
-    </div>
-
     <div class="table-card">
         <table class="table-dashboard">
             <thead>

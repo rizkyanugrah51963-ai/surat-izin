@@ -1,94 +1,139 @@
 @extends('layouts.main')
-@section('page-title', 'Tambah Surat Izin')
 
 @section('content')
-<div class="form-card">
+<div class="header">
+    <h1 class="page-title">Tambah Surat Izin</h1>
+</div>
+
+<div class="form-container">
+    <div class="card-header">
+        <h2 class="card-title">Form Pengajuan Surat Izin</h2>
+        <span class="badge badge-primary">Formulir Baru</span>
+    </div>
+
     <form action="{{ route('surat_izin.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
-            <label>Nama Siswa</label>
-            <input type="text" name="nama_siswa" class="form-control" value="{{ old('nama_siswa') }}" required>
+            <label class="form-label">Nama Siswa</label>
+            <input type="text" 
+                   name="nama_siswa" 
+                   class="form-control" 
+                   value="{{ old('nama_siswa') }}" 
+                   placeholder="Masukkan nama lengkap siswa"
+                   required>
+            @error('nama_siswa')
+                <small style="color: #ea4335; font-size: 12px; margin-top: 4px; display: block;">{{ $message }}</small>
+            @enderror
         </div>
 
         <div class="form-group">
-            <label>Kelas</label>
-            <input type="text" name="kelas" class="form-control" value="{{ old('kelas') }}" required>
+            <label class="form-label">Kelas</label>
+            <input type="text" 
+                   name="kelas" 
+                   class="form-control" 
+                   value="{{ old('kelas') }}" 
+                   placeholder="Contoh: X IPA 1"
+                   required>
+            @error('kelas')
+                <small style="color: #ea4335; font-size: 12px; margin-top: 4px; display: block;">{{ $message }}</small>
+            @enderror
         </div>
 
         <div class="form-group">
-            <label>Tanggal Izin</label>
-            <input type="date" name="tanggal_izin" class="form-control" value="{{ old('tanggal_izin') }}" required>
+            <label class="form-label">Tanggal Izin</label>
+            <input type="date" 
+                   name="tanggal_izin" 
+                   class="form-control" 
+                   value="{{ old('tanggal_izin') }}" 
+                   required>
+            @error('tanggal_izin')
+                <small style="color: #ea4335; font-size: 12px; margin-top: 4px; display: block;">{{ $message }}</small>
+            @enderror
         </div>
 
         <div class="form-group">
-            <label>Alasan</label>
-            <textarea name="alasan" class="form-control" rows="3" required>{{ old('alasan') }}</textarea>
+            <label class="form-label">Alasan Izin</label>
+            <textarea name="alasan" 
+                      class="form-control" 
+                      rows="4" 
+                      placeholder="Jelaskan alasan izin secara detail..."
+                      required>{{ old('alasan') }}</textarea>
+            @error('alasan')
+                <small style="color: #ea4335; font-size: 12px; margin-top: 4px; display: block;">{{ $message }}</small>
+            @enderror
         </div>
 
         <div class="form-group">
-            <label>Status</label>
+            <label class="form-label">Status Izin</label>
             <select name="status" class="form-control" required>
-                <option value="Sakit">Sakit</option>
-                <option value="Izin">Izin</option>
+                <option value="">-- Pilih Status --</option>
+                <option value="Sakit" {{ old('status') == 'Sakit' ? 'selected' : '' }}>🤒 Sakit</option>
+                <option value="Izin" {{ old('status') == 'Izin' ? 'selected' : '' }}>📝 Izin</option>
             </select>
+            @error('status')
+                <small style="color: #ea4335; font-size: 12px; margin-top: 4px; display: block;">{{ $message }}</small>
+            @enderror
         </div>
 
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="{{ route('surat_izin.index') }}" class="btn btn-secondary">Batal</a>
+        <div style="display: flex; gap: 12px; margin-top: 32px; padding-top: 24px; border-top: 2px solid #f1f3f4;">
+            <button type="submit" class="btn btn-primary">
+                ✓ Simpan Surat Izin
+            </button>
+            <a href="{{ route('surat_izin.index') }}" class="btn" style="background: #f1f3f4; color: #5f6368;">
+                ← Kembali
+            </a>
+        </div>
     </form>
 </div>
 
 <style>
-.form-card {
-    background: #fff;
-    padding: 25px 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    max-width: 600px;
-    margin: 0 auto;
-}
+    /* Additional specific styling for this form */
+    .form-control::placeholder {
+        color: #9ca3af;
+        font-size: 13px;
+    }
 
-.form-group {
-    margin-bottom: 15px;
-}
+    .form-group small {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
 
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
+    .form-group small::before {
+        content: "⚠️";
+        font-size: 10px;
+    }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 0.95rem;
-}
+    select.form-control option {
+        padding: 10px;
+    }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: #2563eb;
-    outline: none;
-}
+    /* Animation for form */
+    .form-container {
+        animation: slideUp 0.3s ease-out;
+    }
 
-.btn {
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-}
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-.btn-success { background-color: #2563eb; color: white; }
-.btn-success:hover { background-color: #1d4ed8; }
+    /* Focus state enhancement */
+    .form-control:focus {
+        border-color: #1a73e8 !important;
+        box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1) !important;
+    }
 
-.btn-secondary { background-color: #6b7280; color: white; }
-.btn-secondary:hover { background-color: #4b5563; }
+    /* Button hover enhancement */
+    .btn:hover {
+        transform: translateY(-2px);
+    }
 </style>
 @endsection

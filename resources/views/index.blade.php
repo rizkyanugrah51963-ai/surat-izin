@@ -219,7 +219,7 @@
                     </div>
                     <div class="col-lg-6">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s"
-                            src="{{ asset('user/assets/img/gambar2.png') }}" alt="Siswa">
+                            src="{{ asset('user/assets/img/foto1.png') }}" alt="foto1">
                     </div>
                 </div>
             </div>

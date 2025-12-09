@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AbsenFlow -Surat Izin</title>
+    <title>SchoolPass -Surat Izin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -31,6 +31,7 @@
 
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="{{ asset('user/assets/css/style(1).css') }}">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/testimonial.css') }}">
 </head>
 
 <body>
@@ -48,7 +49,7 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0"><i class="fa fa"></i>Absen<span class="fs-5">Flow</span></h1>
+                    <h1 class="m-0"><i class="fa fa"></i>School<span class="fs-5">Pass</span></h1>
 
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
@@ -128,7 +129,7 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end shadow">
-                        <a href="profileController.php" class="nav-item nav-link">My Profile</a>
+                        <a href="{{ route('profile') }}" class="dropdown-item">My Profile</a>
 
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li>
@@ -144,16 +145,13 @@
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="text-white mb-4 animated zoomIn">Solusi Digital Berkelas untuk Mengelola Surat
                                 Izin dengan Cepat, Aman, dan Elegan.</h1>
-                            <p class="text-white pb-3 animated zoomIn">AbsenFlow membantu sekolah mengelola proses surat
+                            <p class="text-white pb-3 animated zoomIn">SchoolPass membantu sekolah mengelola proses surat
                                 izin dengan lebih cepat, aman, dan terorganisir.
                                 Semua pengajuan tersimpan secara digital sehingga mudah dipantau kapan saja dan di mana
                                 saja.</p>
                             <a href=""
                                 class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Mulai
                                 Sekarang</a>
-                            <a href=""
-                                class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact
-                                Us</a>
                         </div>
                     </div>
                 </div>
@@ -187,7 +185,7 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
                             <h6 class="position-relative text-primary ps-4">About Us</h6>
-                            <h2 class="mt-2">AbsenFlow – Solusi Administrasi Sekolah Modern</h2>
+                            <h2 class="mt-2">SchoolPass – Solusi Administrasi Sekolah Modern</h2>
                         </div>
                         <!-- Visi -->
                         <div class="mb-4">
@@ -221,7 +219,7 @@
                     </div>
                     <div class="col-lg-6">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s"
-                            src="{{ asset('user/assets/img/gambar2.png') }}" alt="Siswa">
+                            src="{{ asset('user/assets/img/foto1.png') }}" alt="foto1">
                     </div>
                 </div>
             </div>
@@ -240,8 +238,7 @@
                                 <i class="fa fa-book fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Absen</h5>
-                            <p>Dengan layanan absen online, pencatatan kehadiran dapat dilakukan secara real-time guna
-                                meningkatkan efisiensi administrasi.</p>
+                            <p>Dengan layanan absen online, pencatatan kehadiran dapat dilakukan secara real-time guna meningkatkan efisiensi administrasi.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -252,8 +249,7 @@
                             </div>
 
                             <h5 class="mb-3">Surat Izin</h5>
-                            <p>Sistem surat izin dirancang untuk mempermudah proses administrasi perizinan melalui
-                                pengajuan yang lebih praktis dan transparan.</p>
+                            <p>Sistem surat izin dirancang untuk mempermudah proses administrasi perizinan melalui pengajuan yang lebih praktis dan transparan.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -276,26 +272,25 @@
 
                             <h5 class="mb-3">Siswa</h5>
                             <p>siswa tersebut belajar untuk mendapatkan ilmu pengetahuan dan untuk mencapai
-                                pemahaman ilmu yang telah didapat dunia pendidikan.</p>
+pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-school fa-2x"></i>
-                            </div>
+    <i class="fa fa-school fa-2x"></i>
+</div>
                             <h5 class="mb-3">Sekolah</h5>
-                            <p>merupakan bangunan atau lembaga untuk belajar dan mengajar serta tempat menerima dan
-                                memberi pelajaran. </p>
+                            <p>merupakan bangunan atau lembaga untuk belajar dan mengajar serta tempat menerima dan memberi pelajaran. </p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-                                <i class="fa fa-user-friends fa-2x"></i>
-                            </div>
+    <i class="fa fa-user-friends fa-2x"></i>
+</div>
                             <h5 class="mb-3">App Development</h5>
                             <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
                                 stet lorem.</p>
@@ -376,7 +371,7 @@
                 <div class="owl-carousel testimonial-carousel">
                     <div class="testimonial-item bg-transparent border rounded text-white p-4">
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
+                        <p> et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
                             diam</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
@@ -389,7 +384,7 @@
                     </div>
                     <div class="testimonial-item bg-transparent border rounded text-white p-4">
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
+                        <p>Dolor eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
                             diam</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
@@ -402,7 +397,7 @@
                     </div>
                     <div class="testimonial-item bg-transparent border rounded text-white p-4">
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
+                        <p>Dolor et eos labore, justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
                             diam</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
@@ -424,6 +419,8 @@
                                 <h6 class="text-white mb-1">Client Name</h6>
                                 <small>Profession</small>
                             </div>
+                            <script src="{{ asset('user/assets/js/testimonial.js') }}"></script>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -436,8 +433,8 @@
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Team</h6>
-                    <h2 class="mt-2">Meet Our Team Members</h2>
+                    <h6 class="position-relative d-inline text-primary ps-4">Team</h6>
+                    <h2 class="mt-2">Anggota Panitia</h2>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -454,8 +451,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-1.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-1.jpg') }}" alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Khairul Ikhsan</h5>
@@ -477,8 +473,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/lelek2.png') }}"
-                                    alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/lelek2.png') }}" alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Rizki Anungrah Ramadhan</h5>
@@ -500,11 +495,10 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-3.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-3.jpg') }}" alt="">
                             </div>
                             <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Fairina</h5>
+                                <h5 class="fw-bold m-0">Fairisna</h5>
                                 <small>Anggota</small>
                             </div>
                         </div>

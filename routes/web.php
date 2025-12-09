@@ -13,41 +13,53 @@ use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
-| Public Routes
+| Public Routes (TANPA LOGIN)
 |--------------------------------------------------------------------------
 */
 
-// Halaman welcome dan index
+// Welcome & Index
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/index', [PageController::class, 'index'])->name('index');
 
-// Halaman admin dashboard (sementara tanpa middleware)
+// ✅ Dashboard admin (masih public sesuai kode kamu)
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+// ✅ DATA GURU (PUBLIC)
+Route::resource('guru', GuruController::class);
+
+// ✅ SURAT IZIN (PUBLIC – LANGSUNG BUKA, TANPA LOGIN)
+Route::resource('surat_izin', SuratIzinController::class);
+
+// ✅ KATEGORI IZIN (PUBLIC, kalau mau dibuka juga)
+Route::resource('kategori-izin', KategoriIzinController::class);
+
 /*
 |--------------------------------------------------------------------------
-| Auth Routes (Login & Logout)
+| Auth Routes (Login masih ada, tapi TIDAK dipakai surat izin)
 |--------------------------------------------------------------------------
 */
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'showLogin')->name('login.form');
+    Route::get('/login', 'showLogin')->name('login');
     Route::post('/login/process', 'login')->name('login.process');
     Route::post('/logout', 'logout')->name('logout');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Forgot NISN Routes
+| Forgot NISN
 |--------------------------------------------------------------------------
 */
-Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])->name('forgot.nisn.form');
-Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])->name('forgot.nisn.post');
+Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])
+    ->name('forgot.nisn.form');
+
+Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])
+    ->name('forgot.nisn.post');
 
 /*
 |--------------------------------------------------------------------------
-| Register Routes
+| Register
 |--------------------------------------------------------------------------
 */
 Route::controller(RegisterController::class)->group(function () {
@@ -57,12 +69,11 @@ Route::controller(RegisterController::class)->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Protected Routes (Harus Login)
+| Protected Routes (MASIH PERLU LOGIN)
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth')->group(function () {
 
-    // Dashboard & Profile
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -71,20 +82,13 @@ Route::middleware('auth')->group(function () {
         return view('profile');
     })->name('profile');
 
-    /*
-    |--------------------------------------------------------------------------
-    | CRUD Routes (Hanya untuk user login)
-    |--------------------------------------------------------------------------
-    */
-    Route::resource('guru', GuruController::class);
-    Route::resource('surat_izin', SuratIzinController::class);
-    Route::resource('kategori-izin', KategoriIzinController::class);
+    // ✅ DATA SISWA SAJA YANG WAJIB LOGIN
     Route::resource('siswa', SiswaController::class);
 });
 
 /*
 |--------------------------------------------------------------------------
-| Login Siswa Routes (Opsional)
+| Login Siswa (Opsional)
 |--------------------------------------------------------------------------
 */
 Route::controller(LoginSiswaController::class)->group(function () {

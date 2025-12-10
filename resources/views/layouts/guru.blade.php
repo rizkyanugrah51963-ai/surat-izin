@@ -323,12 +323,6 @@
                 <span>Data Kategori Izin</span>
             </a>
 
-            <a href="{{ route('kategori-izin.create') }}" 
-               class="nav-item {{ request()->is('kategori-izin/create') ? 'active' : '' }}">
-                <span class="nav-icon">➕</span>
-                <span>Tambah Kategori Izin</span>
-            </a>
-
             <a href="{{ route('guru.index') }}" 
                class="nav-item {{ request()->is('guru') ? 'active' : '' }}">
                 <span class="nav-icon">👨‍🏫</span>

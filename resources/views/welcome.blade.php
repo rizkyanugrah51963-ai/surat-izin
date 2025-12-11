@@ -59,9 +59,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Beranda</a>
-                        <a href="about.html" class="nav-item nav-link">Visi & Misi</a>
-                        <a href="project.html" class="nav-item nav-link">Tentang Kami</a>
+                        <a href="#top" class="nav-item nav-link active">Beranda</a>
+                        <a href="#visi-misi" class="nav-item nav-link">Visi & Misi</a>
+                        <a href="#tentang-kami" class="nav-item nav-link">Tentang Kami</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bantuan</a>
                             <div class="dropdown-menu m-0">
@@ -95,12 +95,10 @@
                         transform: scale(1.08);
                     }
 
-                    /* Pastikan avatar sejajar dengan navbar */
                     .nav-profile {
                         display: flex;
                         align-items: center;
                         margin-left: 15px;
-                        /* memberi jarak sedikit dari sign up */
                     }
 
                     .nav-profile .dropdown-menu {
@@ -121,23 +119,6 @@
                         background: #eef2ff;
                     }
                 </style>
-
-
-                <div class="dropdown nav-profile ms-3">
-                    <a href="#" class="d-flex align-items-center" data-bs-toggle="dropdown">
-                        <img src="{{ asset('user/assets/img/Adudu.png') }}" class="profile-img" alt="Profile">
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-end shadow">
-                        <a href="{{ route('profile') }}" class="dropdown-item">My Profile</a>
-
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-                    </ul>
-                </div>
             </nav>
             <div class="container-xxl py-5 bg-primary hero-header mb-5">
                 <div class="container my-5 py-5 px-lg-5">
@@ -145,7 +126,8 @@
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="text-white mb-4 animated zoomIn">Solusi Digital Berkelas untuk Mengelola Surat
                                 Izin dengan Cepat, Aman, dan Elegan.</h1>
-                            <p class="text-white pb-3 animated zoomIn">SchoolPass membantu sekolah mengelola proses surat
+                            <p class="text-white pb-3 animated zoomIn">SchoolPass membantu sekolah mengelola proses
+                                surat
                                 izin dengan lebih cepat, aman, dan terorganisir.
                                 Semua pengajuan tersimpan secara digital sehingga mudah dipantau kapan saja dan di mana
                                 saja.</p>
@@ -178,7 +160,12 @@
             </div>
         </div>
         <!-- About Start -->
-        <div class="container-xxl py-5">
+        <div class="container-xxl py-5" id="visi-misi">
+            <style>
+                #visi-misi {
+                    scroll-margin-top: 120p;
+                }
+            </style>
             <div class="container px-lg-5">
                 <div class="row g-5">
                     <!-- KIRI: Visi & Misi -->
@@ -225,12 +212,17 @@
             </div>
         </div>
         <!-- Service Start -->
-        <div class="container-xxl py-5">
+        <div class="container-xxl py-5" id="tentang-kami">
             <div class="container px-lg-5">
-                <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Services</h6>
-                    <h2 class="mt-2">What Solutions We Provide</h2>
+                <div class="section-title position-relative text-center mb-5 pb-2">
+                    <h6 class="position-relative d-inline text-primary ps-4">Layanan Kami</h6>
+                    <h2 class="mt-2">Tentang Kami</h2>
                 </div>
+                <style>
+                    #tentang-kami {
+                        scroll-margin-top: 120px;
+                    }
+                </style>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
@@ -238,7 +230,8 @@
                                 <i class="fa fa-book fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Absen</h5>
-                            <p>Dengan layanan absen online, pencatatan kehadiran dapat dilakukan secara real-time guna meningkatkan efisiensi administrasi.</p>
+                            <p>Dengan layanan absen online, pencatatan kehadiran dapat dilakukan secara real-time guna
+                                meningkatkan efisiensi administrasi.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -249,7 +242,8 @@
                             </div>
 
                             <h5 class="mb-3">Surat Izin</h5>
-                            <p>Sistem surat izin dirancang untuk mempermudah proses administrasi perizinan melalui pengajuan yang lebih praktis dan transparan.</p>
+                            <p>Sistem surat izin dirancang untuk mempermudah proses administrasi perizinan melalui
+                                pengajuan yang lebih praktis dan transparan.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -272,25 +266,26 @@
 
                             <h5 class="mb-3">Siswa</h5>
                             <p>siswa tersebut belajar untuk mendapatkan ilmu pengetahuan dan untuk mencapai
-pemahaman ilmu yang telah didapat dunia pendidikan.</p>
+                                pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-    <i class="fa fa-school fa-2x"></i>
-</div>
+                                <i class="fa fa-school fa-2x"></i>
+                            </div>
                             <h5 class="mb-3">Sekolah</h5>
-                            <p>merupakan bangunan atau lembaga untuk belajar dan mengajar serta tempat menerima dan memberi pelajaran. </p>
+                            <p>merupakan bangunan atau lembaga untuk belajar dan mengajar serta tempat menerima dan
+                                memberi pelajaran. </p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                             <div class="service-icon flex-shrink-0">
-    <i class="fa fa-user-friends fa-2x"></i>
-</div>
+                                <i class="fa fa-user-friends fa-2x"></i>
+                            </div>
                             <h5 class="mb-3">App Development</h5>
                             <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
                                 stet lorem.</p>
@@ -306,11 +301,13 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
         <!-- Portfolio Start -->
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
-                <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+
+                <div class="section-title position-relative text-center mb-5 pb-2">
                     <h6 class="position-relative d-inline text-primary ps-4">Our Projects</h6>
                     <h2 class="mt-2">Recently Launched Projects</h2>
                 </div>
-                <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.1s">
+
+                <div class="row mt-n2">
                     <div class="col-12 text-center">
                         <ul class="list-inline mb-5" id="portfolio-flters">
                             <li class="btn px-3 pe-4 active" data-filter="*">All</li>
@@ -319,107 +316,121 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                         </ul>
                     </div>
                 </div>
-                <div class="row g-4 portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.1s">
-                        <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <a class="btn btn-light" href="img/portfolio-1.jpg" data-lightbox="portfolio"><i
-                                        class="fa fa-plus fa-2x text-primary"></i></a>
-                                <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                    <a class="h5 d-block text-white mt-1 mb-0" href="">Project Name</a>
-                                </div>
-                            </div>
+
+                <div class="container my-5">
+                    <div class="row g-4 align-items-center rounded p-4 reveal-parent"
+                        style="background: linear-gradient(135deg, #0a5ff5, #0dc6ff); color:white;">
+
+                        <!-- LEFT SECTION -->
+                        <div class="col-lg-5 reveal">
+                            <img class="img-fluid wow zoomIn" data-wow-delay="0.5s"
+                            src="{{ asset('admin/assets/img/foto2.png') }}" alt="foto1">
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.3s">
-                        <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <a class="btn btn-light" href="img/portfolio-2.jpg" data-lightbox="portfolio"><i
-                                        class="fa fa-plus fa-2x text-primary"></i></a>
-                                <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                    <a class="h5 d-block text-white mt-1 mb-0" href="">Project Name</a>
+
+                        <!-- RIGHT SECTION -->
+                        <div class="col-lg-7">
+                            <div class="row g-4">
+
+                                <div class="col-md-6 reveal" style="transition-delay:.1s">
+                                    <div class="p-4 rounded" style="background:white; color:#333;">
+                                        <div class="mb-3">
+                                            <div class="p-3 rounded"
+                                                style="width:55px; background:#e8f1ff; color:#0057ff;">
+                                                <i class="fa fa-phone fa-lg"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="fw-bold">Emergency Care</h5>
+                                        <p class="m-0">24/7 Emergency Department</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.6s">
-                        <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <a class="btn btn-light" href="img/portfolio-3.jpg" data-lightbox="portfolio"><i
-                                        class="fa fa-plus fa-2x text-primary"></i></a>
-                                <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                    <a class="h5 d-block text-white mt-1 mb-0" href="">Project Name</a>
+
+                                <div class="col-md-6 reveal" style="transition-delay:.2s">
+                                    <div class="p-4 rounded" style="background:white; color:#333;">
+                                        <div class="mb-3">
+                                            <div class="p-3 rounded"
+                                                style="width:55px; background:#e8f1ff; color:#0057ff;">
+                                                <i class="fa fa-user-md fa-lg"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="fw-bold">Primary Care</h5>
+                                        <p class="m-0">Personalized consultations</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 reveal" style="transition-delay:.3s">
+                                    <div class="p-4 rounded" style="background:white; color:#333;">
+                                        <div class="mb-3">
+                                            <div class="p-3 rounded"
+                                                style="width:55px; background:#e8f1ff; color:#0057ff;">
+                                                <i class="fa fa-female fa-lg"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="fw-bold">Women's Health</h5>
+                                        <p class="m-0">Obstetrics & gynecology</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 reveal" style="transition-delay:.4s">
+                                    <div class="p-4 rounded" style="background:white; color:#333;">
+                                        <div class="mb-3">
+                                            <div class="p-3 rounded"
+                                                style="width:55px; background:#e8f1ff; color:#0057ff;">
+                                                <i class="fa fa-heartbeat fa-lg"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="fw-bold">Pediatric Care</h5>
+                                        <p class="m-0">Children healthcare services</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Portfolio End -->
 
 
-        <!-- Testimonial Start -->
-        <div class="container-xxl bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p> et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
-                            diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
-                                style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
+                <!-- Portfolio End -->
+                <!-- Testimonial Start -->
+                <div class="container-xxl bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="container py-5 px-lg-5">
+                        <div class="owl-carousel testimonial-carousel">
+                            <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                                <div class="ps-3">
+                                    <h6 class="text-white mb-1">Digital dalam Dunia Pendidikan</h6>
+                                    <p> Perkembangan teknologi telah membawa perubahan besar dalam berbagai sektor,
+                                        termasuk pendidikan. Sekolah kini mulai beralih dari proses manual menuju sistem
+                                        digital yang lebih efisien, cepat, dan mudah diakses</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
-                            diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
-                                style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
+                            <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                                <div class="ps-3">
+                                    <h6 class="text-white mb-1">Manfaat Digital bagi Siswa</h6>
+                                    <p>Penggunaan layanan digital seperti SchoolPass membantu siswa menjadi lebih
+                                        mandiri,
+                                        teratur, dan bertanggung jawab. Mereka dapat mengajukan izin, melihat riwayat
+                                        izin,
+                                        serta menerima persetujuan secara langsung melalui perangkat mereka.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
-                            diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
-                                style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
+                            <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                                <div class="ps-3">
+                                    <h6 class="text-white mb-1">Manfaat Surat Izin Digital</h6>
+                                    <p>Surat izin digital memberikan solusi modern bagi sekolah dalam mengelola
+                                        perizinan siswa.
+                                        Dengan sistem ini, orang tua dan siswa dapat mengajukan izin secara online tanpa
+                                        perlu
+                                        membawa surat fisik.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore
-                            diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg"
-                                style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                            <script src="{{ asset('user/assets/js/testimonial.js') }}"></script>
+                            <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                                <div class="ps-3">
+                                    <h6 class="text-white mb-1">Lingkungan Sekolah yang Digital & Efisien</h6>
+                                    <p>Lingkungan sekolah yang menerapkan teknologi digital akan bekerja lebih efektif
+                                        dan hemat waktu.
+                                        Administrasi menjadi lebih tertib, tumpukan kertas berkurang, dan komunikasi
+                                        antara guru, siswa,
+                                        serta orang tua menjadi lebih cepat.</p>
+                                </div>
+                                <script src="{{ asset('user/assets/js/testimonial.js') }}"></script>
                             </div>
                         </div>
                     </div>
@@ -451,7 +462,8 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-1.jpg') }}" alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-1.jpg') }}"
+                                    alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Khairul Ikhsan</h5>
@@ -473,7 +485,8 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/lelek2.png') }}" alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/lelek2.png') }}"
+                                    alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Rizki Anungrah Ramadhan</h5>
@@ -495,7 +508,8 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-3.jpg') }}" alt="">
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-3.jpg') }}"
+                                    alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Fairisna</h5>
@@ -514,10 +528,10 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
             <div class="container py-5 px-lg-5">
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <h5 class="text-white mb-4">Hubung Kami</h5>
+                        <p><i class="fa fa-map-marker-alt me-3"></i> USA,Bengkalis</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>+6289649124200</p>
+                        <p><i class="fa fa-envelope me-3"></i>School Pass@gmail.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i
                                     class="fab fa-twitter"></i></a>
@@ -532,12 +546,9 @@ pemahaman ilmu yang telah didapat dunia pendidikan.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
+                        <a href="#top" class="btn btn-link">Beranda</a>
+                        <a href="#visi-misi" class="btn btn-link">Visi & Misi</a>
+                        <a href="#tentang-kami" class="btn btn-link">Tentang Kami</a>
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-4">Project Gallery</h5>

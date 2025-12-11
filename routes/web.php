@@ -21,27 +21,27 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/index', [PageController::class, 'index'])->name('index');
 
-// ✅ Dashboard admin (masih public sesuai kode kamu)
+// Dashboard admin (sementara public)
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-// ✅ DATA GURU (PUBLIC)
+// DATA GURU (PUBLIC)
 Route::resource('guru', GuruController::class);
 
-// ✅ SURAT IZIN (PUBLIC – LANGSUNG BUKA, TANPA LOGIN)
+// SURAT IZIN (PUBLIC – LANGSUNG BUKA, TANPA LOGIN)
 Route::resource('surat_izin', SuratIzinController::class);
 
-// ✅ KATEGORI IZIN (PUBLIC, kalau mau dibuka juga)
+// KATEGORI IZIN (PUBLIC, kalau mau dibuka juga)
 Route::resource('kategori-izin', KategoriIzinController::class);
 
 /*
 |--------------------------------------------------------------------------
-| Auth Routes (Login masih ada, tapi TIDAK dipakai surat izin)
+| Auth Routes (Login Admin)
 |--------------------------------------------------------------------------
 */
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'showLogin')->name('login');
+    Route::get('/login', 'showLogin')->name('login'); // <-- ini route login admin
     Route::post('/login/process', 'login')->name('login.process');
     Route::post('/logout', 'logout')->name('logout');
 });
@@ -73,7 +73,6 @@ Route::controller(RegisterController::class)->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth')->group(function () {
-
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -82,7 +81,7 @@ Route::middleware('auth')->group(function () {
         return view('profile');
     })->name('profile');
 
-    // ✅ DATA SISWA SAJA YANG WAJIB LOGIN
+    // DATA SISWA SAJA YANG WAJIB LOGIN
     Route::resource('siswa', SiswaController::class);
 });
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\pageController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\ForgotNisnController;
@@ -18,8 +18,8 @@ use App\Http\Controllers\RegisterController;
 */
 
 // Welcome & Index
-Route::get('/', [pageController::class, 'welcome'])->name('welcome');
-Route::get('/index', [pageController::class, 'index'])->name('index');
+Route::get('/', [PageController::class, 'welcome'])->name('welcome');
+Route::get('/index', [PageController::class, 'index'])->name('index');
 
 // Dashboard admin (sementara public)
 Route::get('/admin/dashboard', function () {

@@ -10,69 +10,103 @@ use App\Http\Controllers\KategoriIzinController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\LoginSiswaController;
 use App\Http\Controllers\RegisterController;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 /*
 |--------------------------------------------------------------------------
-| Public Routes (TANPA LOGIN)
+| PUBLIC ROUTES
 |--------------------------------------------------------------------------
 */
 
-// Welcome & Index
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/index', [PageController::class, 'index'])->name('index');
 
-// Dashboard admin (sementara public)
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::resource('guru', GuruController::class)->only(['index', 'show']);
+Route::resource('surat_izin', SuratIzinController::class)->only(['create', 'store']);
+Route::resource('kategori-izin', KategoriIzinController::class)->only(['index']);
 
-// DATA GURU (PUBLIC)
-Route::resource('guru', GuruController::class);
-
-// SURAT IZIN (PUBLIC – LANGSUNG BUKA, TANPA LOGIN)
-Route::resource('surat_izin', SuratIzinController::class);
-
-// KATEGORI IZIN (PUBLIC, kalau mau dibuka juga)
-Route::resource('kategori-izin', KategoriIzinController::class);
 
 /*
 |--------------------------------------------------------------------------
-| Auth Routes (Login Admin)
+| REGISTER
 |--------------------------------------------------------------------------
 */
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'showLogin')->name('login'); // <-- ini route login admin
-    Route::post('/login/process', 'login')->name('login.process');
-    Route::post('/logout', 'logout')->name('logout');
-});
 
-/*
-|--------------------------------------------------------------------------
-| Forgot NISN
-|--------------------------------------------------------------------------
-*/
-Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])
-    ->name('forgot.nisn.form');
-
-Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])
-    ->name('forgot.nisn.post');
-
-/*
-|--------------------------------------------------------------------------
-| Register
-|--------------------------------------------------------------------------
-*/
 Route::controller(RegisterController::class)->group(function () {
     Route::get('/register', 'showForm')->name('register.form');
     Route::post('/register', 'register')->name('register.store');
 });
 
+
 /*
 |--------------------------------------------------------------------------
-| Protected Routes (MASIH PERLU LOGIN)
+| FORGOT NISN
 |--------------------------------------------------------------------------
 */
+
+Route::get('/forgot-nisn', [ForgotNisnController::class, 'showForm'])->name('forgot.nisn.form');
+Route::post('/forgot-nisn', [ForgotNisnController::class, 'sendNisn'])->name('forgot.nisn.post');
+
+
+/*
+|--------------------------------------------------------------------------
+| LOGIN ADMIN
+|--------------------------------------------------------------------------
+*/
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'showLogin')->name('login');
+    Route::post('/login/process', 'login')->name('login.process');
+    Route::post('/logout', 'logout')->name('logout');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| LOGIN SISWA
+|--------------------------------------------------------------------------
+*/
+
+Route::controller(LoginSiswaController::class)->group(function () {
+    Route::get('/login-siswa', 'showLogin')->name('login.siswa.form');
+    Route::post('/login-siswa/process', 'login')->name('login.siswa.process');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| DASHBOARD SISWA (HARUS SEBELUM resource siswa)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')->prefix('siswa')->group(function () {
+
+    Route::get('/dashboard-user', function () {
+        return view('siswa.dashboard-user');
+    })->name('siswa.dashboard.user');
+
+    Route::get('/profile', function () {
+        return view('siswa.profile');
+    })->name('siswa.profile');
+
+    Route::put('/siswa/profile/update', [App\Http\Controllers\SiswaProfileController::class, 'update'])
+    ->name('profile.update')
+    ->middleware('auth');
+
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN PROTECTED ROUTES
+|--------------------------------------------------------------------------
+*/
+
 Route::middleware('auth')->group(function () {
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -81,16 +115,20 @@ Route::middleware('auth')->group(function () {
         return view('profile');
     })->name('profile');
 
-    // DATA SISWA SAJA YANG WAJIB LOGIN
+    // LETAKKAN PALING BAWAH AGAR TIDAK BENTROK
     Route::resource('siswa', SiswaController::class);
 });
 
+
 /*
 |--------------------------------------------------------------------------
-| Login Siswa (Opsional)
+| TEMPORARY PASSWORD FIX
 |--------------------------------------------------------------------------
 */
-Route::controller(LoginSiswaController::class)->group(function () {
-    Route::get('/login-siswa', 'showLogin')->name('login.siswa.form');
-    Route::post('/login-siswa/process', 'login')->name('login.siswa.process');
+
+Route::get('/fix-password', function () {
+    $user = User::find(1);
+    $user->password = Hash::make('987654321');
+    $user->save();
+    return "Password berhasil diupdate!";
 });

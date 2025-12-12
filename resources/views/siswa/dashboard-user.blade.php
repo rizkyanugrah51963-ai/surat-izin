@@ -49,10 +49,9 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="/" class="navbar-brand p-0">
-    <img src="{{ asset('user/assets/img/logo1.png') }}" 
-         alt="SchoolPass Logo" 
-         style="max-height: 90px; height: auto; width: auto;">
-</a>
+                    <img src="{{ asset('user/assets/img/logo1.png') }}" alt="SchoolPass Logo"
+                        style="max-height: 90px; height: auto; width: auto;">
+                </a>
 
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -65,63 +64,107 @@
                         <a href="#visi-misi" class="nav-item nav-link">Visi & Misi</a>
                         <a href="#tentang-kami" class="nav-item nav-link">Tentang Kami</a>
                         <a href="#tim" class="nav-item nav-link">Tim</a>
+
+                        <!-- Dropdown Bantuan -->
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bantuan</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Bantuan
+                            </a>
                             <div class="dropdown-menu m-0">
                                 <a href="user.team.html" class="dropdown-item">Hubungi</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
-                        <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
 
-                    </div>
-                    <button type="button" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">
-                        <a href="/register" class="text-light text-decoration-none">Sign Up</a>
+                        <!-- PROFILE DROPDOWN -->
+                        <div class="nav-item dropdown nav-profile">
+                            <img src="{{ asset('user/assets/img/default-profile.png') }}"
+                                class="profile-img dropdown-toggle" data-bs-toggle="dropdown"
+                                alt="Profile {{ Auth::user()->name }}">
 
-                    </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <span class="dropdown-item-text fw-bold">
+                                        {{ Auth::user()->name }}
+                                    </span>
+                                </li>
 
-                </div>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
 
-                <style>
-                    /* Avatar styling */
-                    .profile-img {
-                        width: 42px;
-                        height: 42px;
-                        border-radius: 50%;
-                        object-fit: cover;
-                        border: 2px solid #ffffff80;
-                        cursor: pointer;
-                        transition: .3s ease;
-                    }
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('siswa.profile') }}">
+                                        <i class="bi bi-person me-2"></i>Profil Saya
+                                    </a>
+                                </li>
 
-                    .profile-img:hover {
-                        transform: scale(1.08);
-                    }
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="bi bi-box-arrow-right me-2"></i>Logout
+                                    </a>
+                                </li>
+                            </ul>
 
-                    .nav-profile {
-                        display: flex;
-                        align-items: center;
-                        margin-left: 15px;
-                    }
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
 
-                    .nav-profile .dropdown-menu {
-                        border-radius: 10px;
-                        padding: 8px 0;
-                        min-width: 180px;
-                        text-align: center;
-                    }
+                        <style>
+                            .profile-img {
+                                width: 42px;
+                                height: 42px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                                border: 2px solid rgba(255, 255, 255, 0.5);
+                                cursor: pointer;
+                                transition: transform 0.3s ease, border-color 0.3s ease;
+                            }
 
-                    .nav-profile .dropdown-menu a {
-                        padding: 10px 18px;
-                        font-size: 15px;
-                        text-align: center;
-                        transition: .2s;
-                    }
+                            .profile-img:hover {
+                                transform: scale(1.08);
+                                border-color: rgba(255, 255, 255, 0.8);
+                            }
 
-                    .nav-profile .dropdown-menu a:hover {
-                        background: #eef2ff;
-                    }
-                </style>
+                            .nav-profile {
+                                display: flex;
+                                align-items: center;
+                                margin-left: 15px;
+                            }
+
+                            .nav-profile .dropdown-menu {
+                                border-radius: 10px;
+                                padding: 8px 0;
+                                min-width: 200px;
+                                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                            }
+
+                            .nav-profile .dropdown-item-text {
+                                padding: 10px 18px;
+                                text-align: center;
+                                display: block;
+                            }
+
+                            .nav-profile .dropdown-menu a {
+                                padding: 10px 18px;
+                                font-size: 15px;
+                                transition: background-color 0.2s ease;
+                                text-align: left;
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            .nav-profile .dropdown-menu a:hover {
+                                background-color: #eef2ff;
+                            }
+
+                            .nav-profile .dropdown-divider {
+                                margin: 8px 0;
+                            }
+                        </style>
+
             </nav>
             <div class="container-xxl py-5 bg-primary hero-header mb-5">
                 <div class="container my-5 py-5 px-lg-5">
@@ -346,7 +389,8 @@
                                             </div>
                                         </div>
                                         <h5 class="fw-bold">Pengajuan Izin</h5>
-                                        <p class="m-0">Sistem izin digital untuk siswa dengan proses cepat praktis</p>
+                                        <p class="m-0">Sistem izin digital untuk siswa dengan proses cepat praktis
+                                        </p>
                                     </div>
                                 </div>
 
@@ -436,17 +480,18 @@
 
         <!-- Team Start -->
         <div class="container-xxl py-5" id="tim">
-    <style>
-        #tim {
-            scroll-margin-top: 120px; /* supaya tidak ketutup navbar */
-        }
-    </style>
+            <style>
+                #tim {
+                    scroll-margin-top: 120px;
+                    /* supaya tidak ketutup navbar */
+                }
+            </style>
 
-    <div class="container px-lg-5">
-        <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="position-relative d-inline text-primary ps-4">Tim</h6>
-            <h2 class="mt-2">Anggota Panitia</h2>
-        </div>
+            <div class="container px-lg-5">
+                <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="position-relative d-inline text-primary ps-4">Tim</h6>
+                    <h2 class="mt-2">Anggota Panitia</h2>
+                </div>
 
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -573,7 +618,7 @@
     <script src="/user/assets/lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="user/assets/js/main.js"></script>
+    <script src="{{ asset('user/assets/js/main.js') }}"></script>
 </body>
 
 </html>

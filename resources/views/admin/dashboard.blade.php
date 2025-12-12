@@ -499,15 +499,6 @@
                 </svg>
                 <input type="text" placeholder="Search for projects">
             </div>
-
-            <div class="header-actions">
-                <button class="icon-btn">
-                    <svg fill="currentColor" viewBox="0 0 20 20" style="width: 20px; height: 20px;">
-                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
-                    </svg>
-                </button>
-                <img class="profile-img" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?w=200" alt="Profile">
-            </div>
         </header>
 
         <!-- Page Title -->

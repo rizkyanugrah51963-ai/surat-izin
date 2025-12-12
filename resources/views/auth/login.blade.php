@@ -25,7 +25,6 @@
             padding: 20px;
         }
 
-        /* CARD LOGIN */
         .login-card {
             width: 100%;
             max-width: 380px;
@@ -104,8 +103,8 @@
             transition: 0.25s;
         }
 
-        .input-wrapper input:focus+label,
-        .input-wrapper input:valid+label {
+        .input-wrapper input:focus + label,
+        .input-wrapper input:valid + label {
             top: -7px;
             font-size: 12px;
             color: #1a73e8;
@@ -163,7 +162,7 @@
 
     <div class="login-card">
 
-        <!-- LOGO & HEADER -->
+        <!-- HEADER -->
         <div class="login-header">
             <div class="material-logo">
                 <div class="layer layer-1"></div>
@@ -182,8 +181,8 @@
             </div>
         @endif
 
-        <!-- LOGIN FORM -->
-        <form method="POST" action="{{ route('login.process') }}">
+        <!-- LOGIN FORM (SESUDAH DIBETULKAN) -->
+        <form method="POST" action="{{ route('login.siswa.process') }}">
             @csrf
 
             <!-- EMAIL -->
@@ -194,12 +193,11 @@
                 </div>
             </div>
 
-            <!-- PASSWORD -->
+            <!-- NISN -->
             <div class="form-group">
                 <div class="input-wrapper">
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="nisn" required>
                     <label>NISN</label>
-
                     <button type="button" class="password-toggle" id="togglePass">👁️</button>
                 </div>
             </div>
@@ -215,11 +213,12 @@
     </div>
 
     <script>
-        document.getElementById('togglePass').addEventListener('click', function () {
+        document.getElementById('togglePass').addEventListener('click', function() {
             const pwd = document.getElementById('password');
             pwd.type = pwd.type === 'password' ? 'text' : 'password';
         });
     </script>
 
 </body>
+
 </html>

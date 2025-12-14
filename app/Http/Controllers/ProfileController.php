@@ -3,54 +3,73 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\File;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
     public function showProfile()
     {
-        $user = auth()->user();
-        return view('profile', compact('user'));
+        return view('siswa.profile', [
+            'user' => auth()->user()
+        ]);
     }
 
     public function updateProfile(Request $request)
     {
-        $request->validate([
-            'name'    => 'required|string|max:100',
-            'profile' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
-
         $user = auth()->user();
 
-        // Update nama user
-        $user->update([
-            'name' => $request->name,
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'profile'  => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gallery.*'=> 'nullable|image|max:2048',
         ]);
 
-        // Jika ada file baru yang diupload
+        $user->update(['name' => $request->name]);
+
+        // FOTO PROFIL
         if ($request->hasFile('profile')) {
-            // Hapus file lama jika ada
             if ($user->file) {
-                Storage::delete($user->file->path);
-                $user->file->delete();
+                Storage::disk('public')->delete($user->file->path);
+                $user->file()->delete();
             }
 
-            $file = $request->file('profile');
-            $extension = $file->getClientOriginalExtension();
-            $filename = $user->id . '_' . time() . '.' . $extension;
-            $folder = 'profile/' . $user->id;
-            $path = $file->storeAs($folder, $filename);
+            $path = $request->file('profile')->store('profiles', 'public');
 
-            // Simpan data file ke relasi file user
             $user->file()->create([
-                'alias'     => 'foto-profil',
-                'filename'  => $filename,
-                'path'      => $path,
-                'mime_type' => $file->getClientMimeType(),
-                'size'      => $file->getSize(),
+                'filename' => basename($path),
+                'path'     => $path,
+                'mime_type'=> $request->file('profile')->getMimeType(),
+                'size'     => $request->file('profile')->getSize(),
             ]);
         }
 
-        return back()->with('success', 'Profile berhasil diperbarui');
+        // GALLERY (MULTI FILE)
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $file) {
+                $path = $file->store('gallery', 'public');
+
+                $user->files()->create([
+                    'filename' => basename($path),
+                    'path'     => $path,
+                    'mime_type'=> $file->getMimeType(),
+                    'size'     => $file->getSize(),
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Profil berhasil diperbarui');
+    }
+
+    public function deletePhoto()
+    {
+        $user = auth()->user();
+
+        if ($user->file) {
+            Storage::disk('public')->delete($user->file->path);
+            $user->file()->delete();
+        }
+
+        return back()->with('success', 'Foto profil dihapus');
     }
 }

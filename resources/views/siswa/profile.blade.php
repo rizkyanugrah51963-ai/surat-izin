@@ -1,253 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Siswa</title>
+@extends('layouts.app')
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+@section('title', 'Profil')
+@section('page-title', 'Profil Saya')
 
-    <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Inter', sans-serif;
-            padding: 20px;
-        }
+@section('content')
+<div class="container-fluid">
+    <div class="row g-4">
 
-        .profile-container {
-            max-width: 900px;
-            margin: 40px auto;
-        }
+        {{-- ================= SIDEBAR PROFIL ================= --}}
+        <div class="col-lg-4 col-xl-3">
+            <div class="card border-0 shadow-sm overflow-hidden">
+                {{-- Cover --}}
+                <div class="profile-cover"></div>
 
-        .profile-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
+                <div class="card-body text-center profile-header">
+                    {{-- Avatar --}}
+                    <div class="avatar-wrapper mb-3">
+                        @if ($user->file)
+                            <img src="{{ $user->file->file_stream }}"
+                                 id="profilePreview"
+                                 class="avatar-img">
+                        @else
+                            <div id="profilePreview" class="avatar-placeholder">
+                                {{ strtoupper(substr($user->name, 0, 1)) }}
+                            </div>
+                        @endif
+                    </div>
 
-        .profile-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 50px 20px;
-            text-align: center;
-            color: white;
-        }
+                    <h5 class="fw-bold mb-0">{{ $user->name }}</h5>
+                    <small class="text-muted">{{ $user->email }}</small>
 
-        .profile-avatar img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-        }
-
-        .profile-name {
-            font-family: "Playfair Display";
-            font-size: 2rem;
-            margin-top: 15px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .info-item {
-            background: #f6f8fc;
-            border-radius: 12px;
-            padding: 18px;
-            border: 1px solid #ddd;
-            transition: .2s;
-        }
-
-        .info-item.edit-mode {
-            background: #fff8dc;
-            border-color: #f1c40f;
-        }
-
-        .info-label {
-            font-size: 0.8rem;
-            color: #667eea;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .info-input {
-            margin-top: 6px;
-            display: none;
-        }
-
-        .action-buttons {
-            padding: 20px 30px;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn-custom {
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-
-        .btn-edit { background: #667eea; color: white; }
-        .btn-save { background: #22c55e; color: white; }
-        .btn-cancel { background: #f97316; color: white; }
-        .btn-logout { background: #e84393; color: white; }
-        .btn-back { background: #95a5a6; color: white; }
-    </style>
-</head>
-
-<body>
-
-<div class="profile-container">
-    <div class="profile-card">
-
-        <!-- HEADER -->
-        <div class="profile-header">
-            <div class="profile-avatar">
-                <img src="{{ asset('user/assets/img/default-profile.png') }}">
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-primary">
+                            <i class="bi bi-person-circle me-1"></i> Profil Publik
+                        </button>
+                        <button id="copyProfileLink" class="btn btn-outline-secondary">
+                            <i class="bi bi-link-45deg me-1"></i> Salin Link
+                        </button>
+                    </div>
+                </div>
             </div>
-            <h1 class="profile-name">{{ Auth::user()->name }}</h1>
-            <p>Siswa Terdaftar</p>
         </div>
 
-        <!-- BODY -->
-        <form action="{{ route('profile.update') }}" method="POST" id="profileForm">
-            @csrf
-            @method('PUT')
+        {{-- ================= KONTEN UTAMA ================= --}}
+        <div class="col-lg-8 col-xl-9">
+    <div class="card border-0 shadow-sm profile-card-right">
+                <div class="card-body pt-3 px-4 pb-4">
 
-            <div class="info-grid">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show">
+                            {{ session('success') }}
+                            <button class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    @endif
 
-                {{-- NAME --}}
-                <div class="info-item" id="name-item">
-                    <div class="info-label">Nama Lengkap</div>
-                    <div class="info-value" id="name-display">{{ Auth::user()->name }}</div>
-                    <input type="text" name="name" class="form-control info-input" 
-                           id="name-input" value="{{ Auth::user()->name }}" required>
+                    <div class="mb-3">
+    <h4 class="fw-bold mb-0">Pengaturan Akun</h4>
+    <small class="text-muted">
+        Kelola informasi akun dan foto profil Anda
+    </small>
+</div>
+
+
+
+                    <form action="{{ route('profile.update') }}"
+                          method="POST"
+                          enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+
+                        {{-- Foto Profil --}}
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Foto Profil</label>
+
+                            <div class="d-flex align-items-center gap-3 p-3 border rounded-3 bg-light">
+                                <div>
+                                    @if ($user->file)
+                                        <img src="{{ $user->file->file_stream }}"
+                                             id="profilePreviewSmall"
+                                             class="avatar-sm">
+                                    @else
+                                        <div id="profilePreviewSmall" class="avatar-sm placeholder">
+                                            {{ strtoupper(substr($user->name, 0, 1)) }}
+                                        </div>
+                                    @endif
+                                </div>
+
+                                <div class="flex-fill">
+                                    <input type="file"
+                                           name="profile"
+                                           id="profileInput"
+                                           class="form-control"
+                                           accept="image/*">
+                                    <small class="text-muted">
+                                        Format JPG / PNG • Maksimal 2MB
+                                    </small>
+                                    @error('profile')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Nama --}}
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nama Lengkap</label>
+                            <input type="text"
+                                   name="name"
+                                   class="form-control form-control-lg"
+                                   value="{{ old('name', $user->name) }}">
+                        </div>
+
+                        {{-- Email --}}
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Email</label>
+                            <input type="email"
+                                   class="form-control form-control-lg bg-light"
+                                   value="{{ $user->email }}"
+                                   readonly>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="{{ route('siswa.dashboard.user') }}"
+                               class="btn btn-light btn-lg">
+                                Batal
+                            </a>
+                            <button class="btn btn-primary btn-lg">
+                                Simpan Perubahan
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
-
-                {{-- EMAIL --}}
-                <div class="info-item" id="email-item">
-                    <div class="info-label">Email</div>
-                    <div class="info-value" id="email-display">{{ Auth::user()->email }}</div>
-                    <input type="email" name="email" class="form-control info-input"
-                           id="email-input" value="{{ Auth::user()->email }}" required>
-                </div>
-
-                {{-- NISN --}}
-                <div class="info-item" id="nisn-item">
-                    <div class="info-label">NISN</div>
-                    <div class="info-value" id="nisn-display">{{ Auth::user()->nisn }}</div>
-                    <input type="text" name="nisn" class="form-control info-input"
-                           id="nisn-input" value="{{ Auth::user()->nisn }}" required>
-                </div>
-
-                {{-- TELEPON --}}
-                <div class="info-item" id="telepon-item">
-                    <div class="info-label">Telepon</div>
-                    <div class="info-value" id="telepon-display">{{ Auth::user()->telepon ?? 'Belum diisi' }}</div>
-                    <input type="text" name="telepon" class="form-control info-input"
-                           id="telepon-input" value="{{ Auth::user()->telepon }}">
-                </div>
-
-                {{-- KELAS --}}
-                <div class="info-item" id="kelas-item">
-                    <div class="info-label">Kelas</div>
-                    <div class="info-value" id="kelas-display">{{ Auth::user()->kelas ?? 'Belum diisi' }}</div>
-                    <input type="text" name="kelas" class="form-control info-input"
-                           id="kelas-input" value="{{ Auth::user()->kelas }}">
-                </div>
-
-                {{-- ASAL SEKOLAH --}}
-                <div class="info-item" id="asal_sekolah-item">
-                    <div class="info-label">Asal Sekolah</div>
-                    <div class="info-value" id="asal_sekolah-display">{{ Auth::user()->asal_sekolah ?? 'Belum diisi' }}</div>
-                    <input type="text" name="asal_sekolah" class="form-control info-input"
-                           id="asal_sekolah-input" value="{{ Auth::user()->asal_sekolah }}">
-                </div>
-
-                {{-- TANGGAL LAHIR --}}
-                <div class="info-item" id="tanggal_lahir-item">
-                    <div class="info-label">Tanggal Lahir</div>
-                    <div class="info-value" id="tanggal_lahir-display">
-                        {{ Auth::user()->tanggal_lahir ?? 'Belum diisi' }}
-                    </div>
-                    <input type="date" name="tanggal_lahir" class="form-control info-input"
-                           id="tanggal_lahir-input" value="{{ Auth::user()->tanggal_lahir }}">
-                </div>
-
             </div>
-
-            <!-- BUTTONS -->
-            <div class="action-buttons">
-
-                <a href="{{ url('/siswa/dashboard-user') }}" class="btn-custom btn-back">← Kembali</a>
-
-                <div>
-                    <button type="button" class="btn-custom btn-edit" id="btn-edit">✎ Edit</button>
-                    <button type="submit" class="btn-custom btn-save" id="btn-save" style="display:none;">✓ Simpan</button>
-                    <button type="button" class="btn-custom btn-cancel" id="btn-cancel" style="display:none;">✕ Batal</button>
-
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                       class="btn-custom btn-logout">⎋ Logout</a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
-                </div>
-            </div>
-
-        </form>
+        </div>
     </div>
 </div>
 
+{{-- ================= STYLE ================= --}}
+<style>
+.profile-cover {
+    height: 120px;
+    background: linear-gradient(135deg, #667eea, #2c0bd2);
+}
+
+.profile-header {
+    margin-top: -50px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar-img,
+.avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+
+.avatar-placeholder {
+    background: #4f46e5;
+    color: #fff;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-sm {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-sm.placeholder {
+    background: #6c757d;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
+{{-- ================= SCRIPT ================= --}}
 <script>
-    const fields = [
-        "name", "email", "nisn",
-        "telepon", "kelas", "asal_sekolah", "tanggal_lahir"
-    ];
+const input = document.getElementById('profileInput');
 
-    const btnEdit = document.getElementById("btn-edit");
-    const btnSave = document.getElementById("btn-save");
-    const btnCancel = document.getElementById("btn-cancel");
+if (input) {
+    input.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
 
-    const original = {};
+        const reader = new FileReader();
+        reader.onload = e => {
+            ['profilePreview', 'profilePreviewSmall'].forEach(id => {
+                let el = document.getElementById(id);
+                if (!el) return;
 
-    fields.forEach(f => {
-        original[f] = document.getElementById(`${f}-input`).value;
+                if (el.tagName !== 'IMG') {
+                    const img = document.createElement('img');
+                    img.id = id;
+                    img.className = el.className;
+                    img.style = el.style.cssText;
+                    el.replaceWith(img);
+                    el = img;
+                }
+                el.src = e.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
     });
+}
 
-    btnEdit.addEventListener("click", () => {
-
-        fields.forEach(f => {
-            document.getElementById(`${f}-display`).style.display = "none";
-            document.getElementById(`${f}-input`).style.display = "block";
-            document.getElementById(`${f}-item`).classList.add("edit-mode");
-        });
-
-        btnEdit.style.display = "none";
-        btnSave.style.display = "inline-block";
-        btnCancel.style.display = "inline-block";
+const copyBtn = document.getElementById('copyProfileLink');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+        navigator.clipboard.writeText(window.location.href);
+        this.innerHTML = '✔ Tersalin';
+        setTimeout(() => {
+            this.innerHTML = '<i class="bi bi-link-45deg me-1"></i> Salin Link';
+        }, 2000);
     });
-
-    btnCancel.addEventListener("click", () => {
-
-        fields.forEach(f => {
-            document.getElementById(`${f}-input`).value = original[f];
-            document.getElementById(`${f}-display`).style.display = "block";
-            document.getElementById(`${f}-input`).style.display = "none";
-            document.getElementById(`${f}-item`).classList.remove("edit-mode");
-        });
-
-        btnEdit.style.display = "inline-block";
-        btnSave.style.display = "none";
-        btnCancel.style.display = "none";
-    });
+}
 </script>
-
-</body>
-</html>
+@endsection

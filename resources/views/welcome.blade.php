@@ -290,8 +290,8 @@
                                 <i class="fa fa-user-friends fa-2x"></i>
                             </div>
                             <h5 class="mb-3">App Development</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed
-                                stet lorem.</p>
+                            <p>Pengembangan digital yang dirancang untuk mendukung sistem pendidikan agar lebih efektif, 
+                                modern, dan mudah digunakan oleh siswa maupun sekolah.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -525,7 +525,9 @@
 
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container-fluid text-light footer mt-5 pt-5 wow fadeIn"
+     style="background-color: #1619ED;"
+     data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">

@@ -1,56 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="utf-8">
-    <title>@yield('title', 'AbsenFlow - Surat Izin')</title>
+    <meta charset="UTF-8">
+    <title>@yield('title', 'Dashboard')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Favicon -->
-    <link href="{{ asset('user/assets/img/favicon.ico') }}" rel="icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries -->
-    <link href="{{ asset('user/assets/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('user/assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('user/assets/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
-
-    <!-- Bootstrap -->
+    {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/style(1).css') }}">
 
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
+    @stack('styles')
 </head>
+<body class="bg-light">
 
-<body>
-    <div class="container-xxl bg-white p-0">
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
+    <span class="navbar-brand fw-bold">
+        @yield('page-title', 'Dashboard')
+    </span>
 
-        @include('partials.navbar')
+    <div class="ms-auto dropdown">
+        <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2"
+                type="button"
+                data-bs-toggle="dropdown">
+            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name ?? 'User') }}"
+                 width="36" height="36" class="rounded-circle">
+            <span>{{ Auth::user()->name }}</span>
+        </button>
 
-        @yield('content')
-
-        @include('partials.footer')
-
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li class="px-3 py-2 small text-muted">
+                {{ Auth::user()->email }}
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item" href="{{ route('siswa.profile') }}">
+                    Profil
+                </a>
+            </li>
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="dropdown-item text-danger">Logout</button>
+                </form>
+            </li>
+        </ul>
     </div>
+</nav>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('user/assets/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('user/assets/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('user/assets/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('user/assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('user/assets/lib/isotope/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('user/assets/lib/lightbox/js/lightbox.min.js') }}"></script>
+<!-- CONTENT -->
+<main class="container my-4">
+    @yield('content')
+</main>
 
-    <script src="{{ asset('user/assets/js/main.js') }}"></script>
+<script src="{{ asset('user/assets/js/bootstrap.bundle.min.js') }}"></script>
+@stack('scripts')
+
 </body>
-
 </html>

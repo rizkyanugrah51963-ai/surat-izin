@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratIzin extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'nama_siswa', 
-        'kelas', 
-        'tanggal_izin', 
-        'alasan', 
-        'status'
+        'user_id',
+        'tanggal_izin',
+        'alasan',
+        'keterangan',
+        'bukti_surat',
+        'status',
     ];
 }
+

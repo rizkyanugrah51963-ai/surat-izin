@@ -10,6 +10,7 @@
 
     <div style="background:white; padding:25px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
 
+        {{-- Error Validation --}}
         @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>Terjadi Kesalahan:</strong>
@@ -25,17 +26,31 @@
             @csrf
             @method('PUT')
 
+            {{-- Nama Kategori --}}
             <div class="mb-3">
                 <label for="nama" class="form-label fw-bold">Nama Kategori</label>
-                <input type="text" name="nama" class="form-control" value="{{ $kategori->nama }}" required>
+                <input
+                    type="text"
+                    name="nama"
+                    class="form-control"
+                    value="{{ old('nama', $kategori->nama) }}"
+                    required
+                >
             </div>
 
+            {{-- Keterangan (BENER, SESUAI DATABASE) --}}
             <div class="mb-3">
-                <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control" rows="4">{{ $kategori->deskripsi }}</textarea>
+                <label for="keterangan" class="form-label fw-bold">Keterangan</label>
+                <textarea
+                    name="keterangan"
+                    class="form-control"
+                    rows="4"
+                >{{ old('keterangan', $kategori->keterangan) }}</textarea>
             </div>
 
-            <button type="submit" class="btn-dashboard">Update</button>
+            <button type="submit" class="btn-dashboard">
+                Update
+            </button>
         </form>
 
     </div>

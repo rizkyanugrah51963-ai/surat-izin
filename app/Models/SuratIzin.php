@@ -8,12 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class SuratIzin extends Model
 {
     protected $fillable = [
-        'user_id',
+        'siswa_id',
+        'nama_siswa',
+        'kelas',
         'tanggal_izin',
         'alasan',
         'keterangan',
-        'bukti_surat',
+        'bukti',
         'status',
     ];
+
+    public function siswa()
+    {
+        return $this->belongsTo(User::class, 'siswa_id');
+    }
 }
+
 

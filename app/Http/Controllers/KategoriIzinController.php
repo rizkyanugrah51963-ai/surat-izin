@@ -7,56 +7,68 @@ use Illuminate\Http\Request;
 
 class KategoriIzinController extends Controller
 {
-    // Tampilkan semua kategori izin
+    // ======================
+    // TAMPILKAN DATA
+    // ======================
     public function index()
     {
         $kategori = KategoriIzin::orderBy('created_at', 'desc')->get();
         return view('kategori_izin.index', compact('kategori'));
     }
 
-    // Form tambah
+    // ======================
+    // FORM TAMBAH
+    // ======================
     public function create()
     {
         return view('kategori_izin.create');
     }
 
-    // Simpan data
+    // ======================
+    // SIMPAN DATA BARU
+    // ======================
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama' => 'required|max:100',
-            'keterangan' => 'nullable'
+            'keterangan' => 'nullable',
         ]);
 
-        KategoriIzin::create($request->all());
+        KategoriIzin::create($validated);
 
         return redirect()->route('kategori-izin.index')
             ->with('success', 'Kategori Izin berhasil ditambahkan');
     }
 
-    // Form edit
+    // ======================
+    // FORM EDIT
+    // ======================
     public function edit($id)
     {
         $kategori = KategoriIzin::findOrFail($id);
         return view('kategori_izin.edit', compact('kategori'));
     }
 
-    // Update data
+    // ======================
+    // UPDATE DATA
+    // ======================
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama' => 'required|max:100',
-            'keterangan' => 'nullable'
+            'keterangan' => 'nullable',
         ]);
 
         $kategori = KategoriIzin::findOrFail($id);
-        $kategori->update($request->all());
+        $kategori->update($validated);
 
         return redirect()->route('kategori-izin.index')
             ->with('success', 'Kategori Izin berhasil diperbarui');
     }
 
-    // Hapus data
+    // ======================
+    // HAPUS DATA
+    // ======================
     public function destroy($id)
     {
         KategoriIzin::findOrFail($id)->delete();

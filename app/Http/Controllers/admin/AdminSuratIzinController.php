@@ -9,12 +9,11 @@ use Illuminate\Http\Request;
 class AdminSuratIzinController extends Controller
 {
     // ADMIN: LIHAT SEMUA SURAT IZIN
-    public function index()
-    {
-        $surat = SuratIzin::latest()->get();
-        return view('admin.surat_izin', compact('surat'));
-    }
-
+   public function index()
+{
+    $suratIzin = SuratIzin::orderBy('created_at', 'desc')->get();
+    return view('admin.surat_izin.index', compact('suratIzin'));
+}
     // ADMIN: UPDATE STATUS (APPROVE / REJECT)
     public function update(Request $request, SuratIzin $suratIzin)
     {

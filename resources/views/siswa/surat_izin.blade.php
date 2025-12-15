@@ -159,6 +159,9 @@
         <form action="{{ route('siswa.surat_izin.store') }}"
       method="POST"
       enctype="multipart/form-data">
+    @csrf
+
+
 
 
             <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white rounded-t-2xl">
@@ -202,7 +205,7 @@
                         Bukti Surat (Foto / PDF)
                     </label>
                     <input type="file"
-                        name="bukti_surat"
+                    name="bukti"
                         accept="image/*,.pdf"
                         class="w-full border rounded-lg px-4 py-2">
                     <p class="text-xs text-gray-500 mt-1">

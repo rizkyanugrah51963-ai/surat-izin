@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\GuruController;
-use App\Http\Controllers\SuratIzinController;
+use App\Http\Controllers\Siswa\SuratIzinController;
 use App\Http\Controllers\ForgotNisnController;
 use App\Http\Controllers\KategoriIzinController;
 use App\Http\Controllers\LoginSiswaController;
@@ -47,7 +47,17 @@ Route::get('/kategori-izin', [KategoriIzinController::class, 'index'])
 Route::get('/kategori-izin/create', [KategoriIzinController::class, 'create'])
     ->name('kategori-izin.create');
 
+Route::post('/kategori-izin', [KategoriIzinController::class, 'store'])
+    ->name('kategori-izin.store');
 
+Route::get('/kategori-izin/{kategoriIzin}/edit', [KategoriIzinController::class, 'edit'])
+    ->name('kategori-izin.edit');
+
+Route::put('/kategori-izin/{kategoriIzin}', [KategoriIzinController::class, 'update'])
+    ->name('kategori-izin.update');
+
+Route::delete('/kategori-izin/{kategoriIzin}', [KategoriIzinController::class, 'destroy'])
+    ->name('kategori-izin.destroy');
 /*
 |--------------------------------------------------------------------------
 | REGISTER
@@ -129,8 +139,13 @@ Route::prefix('siswa')->name('siswa.')->group(function () {
         return view('siswa.surat_izin');
     })->name('surat_izin');
 
-    Route::post('/surat-izin', [SuratIzinController::class, 'store'])
-        ->name('surat_izin.store');
+    Route::post('/surat-izin',
+    [SuratIzinController::class, 'store']
+)->name('surat_izin.store');
+
+    
+    Route::post('/siswa/surat-izin',[\App\Http\Controllers\Siswa\SuratIzinController::class, 'store']
+    )->name('siswa.surat_izin.store');
 });
 
 /*
@@ -155,6 +170,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::delete('/surat-izin/{suratIzin}', [AdminSuratIzinController::class, 'destroy'])
         ->name('surat-izin.destroy');
+
+Route::get('/surat-izin', [AdminSuratIzinController::class, 'index'])
+    ->name('surat-izin.index');
+
+
+
 });
 
 /*

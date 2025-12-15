@@ -9,21 +9,30 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('kategori_izin', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama'); // nama kategori izin
-            $table->text('keterangan')->nullable(); // keterangan opsional
-            $table->timestamps();
-        });
-    }
+    public function store(Request $request)
+{
+    $validated = $request->validate([
+        'nama' => 'required|max:100',
+        'keterangan' => 'nullable',
+    ]);
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('kategori_izin');
-    }
-};
+    KategoriIzin::create($validated);
+
+    return redirect()->route('kategori-izin.index')
+        ->with('success', 'Kategori Izin berhasil ditambahkan');
+}
+
+public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'nama' => 'required|max:100',
+        'keterangan' => 'nullable',
+    ]);
+
+    $kategori = KategoriIzin::findOrFail($id);
+    $kategori->update($validated);
+
+    return redirect()->route('kategori-izin.index')
+        ->with('success', 'Kategori Izin berhasil diperbarui');
+}
+

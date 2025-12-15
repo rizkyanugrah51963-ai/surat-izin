@@ -22,46 +22,29 @@ class KategoriIzinController extends Controller
 
     // Simpan data
     public function store(Request $request)
-    {
-        $request->validate([
-            'nama' => 'required|max:100',
-            'keterangan' => 'nullable'
-        ]);
+{
+    $validated = $request->validate([
+        'nama' => 'required|max:100',
+        'deskripsi' => 'nullable'
+    ]);
 
-        KategoriIzin::create($request->all());
+    KategoriIzin::create($validated);
 
-        return redirect()->route('kategori-izin.index')
-            ->with('success', 'Kategori Izin berhasil ditambahkan');
-    }
-
-    // Form edit
-    public function edit($id)
-    {
-        $kategori = KategoriIzin::findOrFail($id);
-        return view('kategori_izin.edit', compact('kategori'));
-    }
-
-    // Update data
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'nama' => 'required|max:100',
-            'keterangan' => 'nullable'
-        ]);
-
-        $kategori = KategoriIzin::findOrFail($id);
-        $kategori->update($request->all());
-
-        return redirect()->route('kategori-izin.index')
-            ->with('success', 'Kategori Izin berhasil diperbarui');
-    }
-
-    // Hapus data
-    public function destroy($id)
-    {
-        KategoriIzin::findOrFail($id)->delete();
-
-        return redirect()->route('kategori-izin.index')
-            ->with('success', 'Kategori Izin berhasil dihapus');
-    }
+    return redirect()->route('kategori-izin.index')
+        ->with('success', 'Kategori Izin berhasil ditambahkan');
 }
+
+public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'nama' => 'required|max:100',
+        'deskripsi' => 'nullable'
+    ]);
+
+    $kategori = KategoriIzin::findOrFail($id);
+    $kategori->update($validated);
+
+    return redirect()->route('kategori-izin.index')
+        ->with('success', 'Kategori Izin berhasil diperbarui');
+}
+

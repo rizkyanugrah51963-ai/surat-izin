@@ -7,15 +7,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('surat_izins', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_siswa');
-            $table->string('kelas');
-            $table->date('tanggal_izin');
-            $table->text('alasan');
-            $table->string('status')->default('Pending'); // status awal
-            $table->timestamps();
-        });
+        Schema::create('surat_izin', function (Blueprint $table) {
+    $table->id();
+    $table->unsignedBigInteger('siswa_id');
+    $table->date('tanggal_izin');
+    $table->string('alasan');
+    $table->text('keterangan')->nullable();
+    $table->string('bukti')->nullable();
+    $table->enum('status', ['menunggu', 'disetujui', 'ditolak'])->default('menunggu');
+    $table->timestamps();
+});
+
     }
 
     public function down(): void

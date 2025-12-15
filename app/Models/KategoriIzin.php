@@ -10,6 +10,6 @@ class KategoriIzin extends Model
 
     protected $fillable = [
         'nama',
-        'keterangan'
+        'keterangan',
     ];
 }

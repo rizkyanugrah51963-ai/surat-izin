@@ -63,11 +63,10 @@
 
 
 
-                    <form action="{{ route('profile.update') }}"
-                          method="POST"
-                          enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+                    <form action="{{ route('siswa.profile.update') }}"
+      method="POST"
+      enctype="multipart/form-data">
+
 
                         {{-- Foto Profil --}}
                         <div class="mb-4">

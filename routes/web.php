@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
@@ -10,10 +12,11 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\ForgotNisnController;
 use App\Http\Controllers\KategoriIzinController;
-use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\LoginSiswaController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ProfileController;
+
+/* ================= ADMIN CONTROLLERS ================= */
+use App\Http\Controllers\Admin\AdminSuratIzinController;
 
 use App\Models\User;
 use App\Models\File;
@@ -38,7 +41,12 @@ Route::resource('guru', GuruController::class);
 | KATEGORI IZIN
 |--------------------------------------------------------------------------
 */
-Route::resource('kategori-izin', KategoriIzinController::class)->only(['index']);
+Route::get('/kategori-izin', [KategoriIzinController::class, 'index'])
+    ->name('kategori-izin.index');
+
+Route::get('/kategori-izin/create', [KategoriIzinController::class, 'create'])
+    ->name('kategori-izin.create');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +83,7 @@ Route::post('/login-siswa/process', [LoginSiswaController::class, 'login'])->nam
 
 /*
 |--------------------------------------------------------------------------
-| FILE DOWNLOAD (AUTH)
+| FILE DOWNLOAD
 |--------------------------------------------------------------------------
 */
 Route::get('/files/{file}/{action}', function (File $file, $action) {
@@ -83,50 +91,43 @@ Route::get('/files/{file}/{action}', function (File $file, $action) {
         return Storage::download($file->path, $file->filename);
     }
     abort(404);
-})->middleware('auth')->name('files.action');
+})->name('files.action');
 
 /*
 |--------------------------------------------------------------------------
-| ADMIN SURAT IZIN (FIX – BISA DIKLIK)
-|--------------------------------------------------------------------------
-| DIARAHKAN KE DASHBOARD YANG SUDAH ADA
-| TIDAK CARI VIEW LAGI
-*/
-Route::get('/admin/surat-izin', function () {
-    return redirect()->route('admin.dashboard');
-})->name('admin.surat_izin');
-
-/*
-|--------------------------------------------------------------------------
-| ALIAS LINK LAMA
+| SISWA AREA
 |--------------------------------------------------------------------------
 */
-Route::get('/surat-izin', fn () => redirect()->route('admin.surat_izin'));
-Route::get('/surat_izin', fn () => redirect()->route('admin.surat_izin'));
-
-/*
-|--------------------------------------------------------------------------
-| SISWA AREA (WAJIB LOGIN)
-|--------------------------------------------------------------------------
-*/
-Route::middleware('auth')->prefix('siswa')->group(function () {
+Route::prefix('siswa')->name('siswa.')->group(function () {
 
     Route::get('/dashboard-user', function () {
         return view('siswa.dashboard-user');
-    })->name('siswa.dashboard.user');
+    })->name('dashboard.user');
 
-    Route::get('/profile', [ProfileController::class, 'showProfile'])
-        ->name('siswa.profile');
+    Route::get('/profile', function () {
+        return view('siswa.profile', [
+            'user' => Auth::user()
+        ]);
+    })->name('profile');
+    Route::put('/profile', function (Request $request) {
 
-    Route::put('/profile', [ProfileController::class, 'updateProfile'])
-        ->name('profile.update');
+        $user = Auth::user();
 
-    Route::delete('/profile/photo', [ProfileController::class, 'deletePhoto'])
-        ->name('profile.photo.delete');
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $user->name = $request->name;
+        $user->save();
+
+        return redirect()
+            ->route('siswa.profile')
+            ->with('success', 'Profil berhasil diperbarui');
+    })->name('profile.update');
 
     Route::get('/surat-izin', function () {
         return view('siswa.surat_izin');
-    })->name('siswa.surat_izin');
+    })->name('surat_izin');
 
     Route::post('/surat-izin', [SuratIzinController::class, 'store'])
         ->name('surat_izin.store');
@@ -137,21 +138,43 @@ Route::middleware('auth')->prefix('siswa')->group(function () {
 | ADMIN AREA
 |--------------------------------------------------------------------------
 */
-Route::middleware('auth')->group(function () {
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+
+    Route::get('/surat-izin', [AdminSuratIzinController::class, 'index'])
+        ->name('surat-izin.index');
+
+    Route::get('/surat-izin/{suratIzin}/edit', [AdminSuratIzinController::class, 'edit'])
+        ->name('surat-izin.edit');
+
+    Route::put('/surat-izin/{suratIzin}', [AdminSuratIzinController::class, 'update'])
+        ->name('surat-izin.update');
+
+    Route::delete('/surat-izin/{suratIzin}', [AdminSuratIzinController::class, 'destroy'])
+        ->name('surat-izin.destroy');
 });
 
 /*
 |--------------------------------------------------------------------------
-| ADMIN DASHBOARD TANPA LOGIN (DEV)
+| SURAT IZIN SISWA
 |--------------------------------------------------------------------------
 */
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::get('/surat-izin', function () {
+    return redirect()->route('admin.surat-izin.index');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| REDIRECT AMAN
+|--------------------------------------------------------------------------
+*/
+Route::get('/surat_izin', function () {
+    return redirect()->route('admin.surat-izin.index');
+});
 
 /*
 |--------------------------------------------------------------------------

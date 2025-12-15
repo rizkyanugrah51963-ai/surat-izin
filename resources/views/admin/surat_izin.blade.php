@@ -69,15 +69,10 @@
     <div class="sidebar">
         <h2>Menu Surat Izin</h2>
 
-        <a href="{{ route('surat_izin.index') }}"
-           class="{{ request()->is('surat_izin') ? 'active' : '' }}">
-           Data Surat Izin
-        </a>
-
-        <a href="{{ route('surat_izin.create') }}"
-           class="{{ request()->is('surat_izin/create') ? 'active' : '' }}">
-           Tambah Surat Izin
-        </a>
+        <a href="{{ route('admin.surat-izin.index') }}"
+   class="{{ request()->is('admin/surat-izin') ? 'active' : '' }}">
+   Data Surat Izin
+</a>
 
         
     </div>

@@ -2,35 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\SuratIzin;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SuratIzinController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
+            'nama_siswa'   => 'required|string|max:255',
+            'kelas'        => 'required|string|max:50',
             'tanggal_izin' => 'required|date',
-            'alasan' => 'required',
-            'keterangan' => 'nullable',
-            'bukti_surat' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'alasan'       => 'required|string',
+            // kalau ada upload file:
+            // 'lampiran' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
         ]);
 
-        $filePath = null;
-        if ($request->hasFile('bukti_surat')) {
-            $filePath = $request->file('bukti_surat')
-                ->store('bukti_surat', 'public');
-        }
+        // Jika surat izin terhubung ke user login
+        $validated['user_id'] = Auth::id();
 
-        SuratIzin::create([
-            'user_id' => auth()->id(),
-            'tanggal_izin' => $request->tanggal_izin,
-            'alasan' => $request->alasan,
-            'keterangan' => $request->keterangan,
-            'bukti_surat' => $filePath,
-            'status' => 'Menunggu',
-        ]);
+        SuratIzin::create($validated);
 
-        return back()->with('success', 'Surat izin berhasil dikirim');
+        return redirect()
+            ->route('siswa.surat_izin')
+            ->with('success', 'Surat izin berhasil diajukan');
     }
 }

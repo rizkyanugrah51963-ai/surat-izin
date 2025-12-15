@@ -156,10 +156,10 @@
         onclick="event.stopPropagation()">
 
         <!-- FORM -->
-        <form action="{{ route('surat_izin.store') }}"
-              method="POST"
-              enctype="multipart/form-data">
-            @csrf
+        <form action="{{ route('siswa.surat_izin.store') }}"
+      method="POST"
+      enctype="multipart/form-data">
+
 
             <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white rounded-t-2xl">
                 <div class="flex justify-between items-center">

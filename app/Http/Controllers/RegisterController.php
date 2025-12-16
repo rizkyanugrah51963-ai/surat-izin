@@ -15,22 +15,33 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+        // 🔒 VALIDASI DATA REGISTER
         $request->validate([
             'username' => 'required|string|max:255|unique:users,username',
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'nisn' => 'required|string|confirmed',
+            'nisn' => 'required|string|confirmed|unique:users,nisn',
+            'jenjang_sekolah' => 'required|string',
+            'kelas' => 'required|string',
+            'asal_sekolah' => 'required|string',
         ]);
 
+        // 💾 SIMPAN DATA SISWA (INI KUNCINYA)
         User::create([
             'username' => $request->username,
             'name' => $request->name,
             'email' => $request->email,
             'nisn' => $request->nisn,
-            'password' => Hash::make($request->nisn), // pakai NISN sebagai password
-            'role' => 'siswa', // default role
+            'jenjang_sekolah' => $request->jenjang_sekolah,
+            'kelas' => $request->kelas,
+            'asal_sekolah' => $request->asal_sekolah,
+            'password' => Hash::make($request->nisn), // password default = NISN
+            'role' => 'siswa',
         ]);
 
-        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
+        // 🔁 REDIRECT KE LOGIN
+        return redirect()
+            ->route('login')
+            ->with('success', 'Registrasi berhasil! Silakan login.');
     }
 }

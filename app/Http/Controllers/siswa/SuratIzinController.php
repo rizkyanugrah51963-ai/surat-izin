@@ -8,12 +8,15 @@ use Illuminate\Http\Request;
 
 class SuratIzinController extends Controller
 {
+    /**
+     * Simpan pengajuan surat izin oleh siswa
+     */
     public function store(Request $request)
     {
         $request->validate([
             'tanggal_izin' => 'required|date',
-            'alasan'       => 'required',
-            'keterangan'   => 'nullable',
+            'alasan'       => 'required|string',
+            'keterangan'   => 'nullable|string',
             'bukti'        => 'nullable|mimes:jpg,png,pdf|max:2048'
         ]);
 
@@ -35,6 +38,6 @@ class SuratIzinController extends Controller
             'status'       => 'menunggu',
         ]);
 
-        return back()->with('success', 'Izin berhasil diajukan');
+        return redirect()->back()->with('success', 'Izin berhasil diajukan');
     }
 }

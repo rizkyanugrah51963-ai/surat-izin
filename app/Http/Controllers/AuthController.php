@@ -13,23 +13,45 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-    // Menampilkan halaman login
+    /**
+     * Menampilkan halaman login USER
+     */
     public function showLogin()
     {
+        if (Auth::check()) {
+
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+
+            return redirect()->route('index');
+        }
+
         return view('auth.login', ['title' => 'Login']);
     }
 
-    // Proses login
-    public function login(Request $request)
+    /**
+     * Proses login (ADMIN & USER)
+     */
+    public function login(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'string']
+            'password' => ['required', 'string'],
         ]);
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard')->with('success', 'Login berhasil!');
+
+            if (Auth::user()->role === 'admin') {
+                return redirect()
+                    ->route('admin.dashboard')
+                    ->with('success', 'Selamat datang Admin!');
+            }
+
+            return redirect()
+                ->route('index')
+                ->with('success', 'Login berhasil!');
         }
 
         throw ValidationException::withMessages([
@@ -37,41 +59,51 @@ class AuthController extends Controller
         ]);
     }
 
-    // Menampilkan halaman register
+    /**
+     * Menampilkan halaman register
+     */
     public function showRegister(): View
     {
         return view('auth.register', ['title' => 'Daftar']);
     }
 
-    // Proses register + auto login
+    /**
+     * Proses register + auto login (USER)
+     */
     public function register(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'name' => 'required|string|min:3|max:100',
             'email' => 'required|email|unique:users,email',
-            'password' => ['required', 'confirmed', Password::defaults()]
+            'password' => ['required', 'confirmed', Password::defaults()],
         ]);
 
-        // Simpan user baru
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'role' => 'user',
         ]);
 
-        // Login otomatis setelah register
         Auth::login($user);
 
-        // Redirect ke dashboard / halaman utama
-        return redirect('/dashboard')->with('success', 'Registrasi berhasil! Anda langsung login.');
+        return redirect()
+            ->route('index')
+            ->with('success', 'Registrasi berhasil! Anda sudah login.');
     }
 
-    // Logout
+    /**
+     * Logout (USER & ADMIN)
+     */
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')->with('success', 'Anda telah logout.');
+
+        return redirect()
+            ->route('login')
+            ->with('success', 'Anda telah logout.');
     }
 }

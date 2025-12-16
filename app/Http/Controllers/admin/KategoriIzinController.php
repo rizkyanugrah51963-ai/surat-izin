@@ -47,4 +47,4 @@ public function update(Request $request, $id)
     return redirect()->route('kategori-izin.index')
         ->with('success', 'Kategori Izin berhasil diperbarui');
 }
-
+}

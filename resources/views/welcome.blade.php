@@ -63,14 +63,9 @@
                     <div class="navbar-nav ms-auto py-0">
                         <a href="#top" class="nav-item nav-link active">Beranda</a>
                         <a href="#visi-misi" class="nav-item nav-link">Visi & Misi</a>
-                        <a href="#tentang-kami" class="nav-item nav-link">Tentang Kami</a>
+                        <a href="#Fitur-kami" class="nav-item nav-link">Fitur Kami</a>
                         <a href="#tim" class="nav-item nav-link">Tim</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bantuan</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="user.team.html" class="dropdown-item">Hubungi</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
                         </div>
                         <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
 
@@ -215,14 +210,14 @@
             </div>
         </div>
         <!-- Service Start -->
-        <div class="container-xxl py-5" id="tentang-kami">
+        <div class="container-xxl py-5" id="Fitur-kami">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2">
                     <h6 class="position-relative d-inline text-primary ps-4">Layanan Kami</h6>
-                    <h2 class="mt-2">Tentang Kami</h2>
+                    <h2 class="mt-2">Fitur Kami</h2>
                 </div>
                 <style>
-                    #tentang-kami {
+                    #Fitur-kami {
                         scroll-margin-top: 120px;
                     }
                 </style>
@@ -235,7 +230,6 @@
                             <h5 class="mb-3">Absen</h5>
                             <p>Dengan layanan absen online, pencatatan kehadiran dapat dilakukan secara real-time guna
                                 meningkatkan efisiensi administrasi.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
@@ -247,7 +241,6 @@
                             <h5 class="mb-3">Surat Izin</h5>
                             <p>Sistem surat izin dirancang untuk mempermudah proses administrasi perizinan melalui
                                 pengajuan yang lebih praktis dan transparan.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
@@ -258,7 +251,6 @@
 
                             <h5 class="mb-3">Guru</h5>
                             <p>guru adalah orang yang memandu muridnya dalam jalan menuju kebenaran.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
@@ -270,7 +262,6 @@
                             <h5 class="mb-3">Siswa</h5>
                             <p>siswa tersebut belajar untuk mendapatkan ilmu pengetahuan dan untuk mencapai
                                 pemahaman ilmu yang telah didapat dunia pendidikan.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
@@ -281,7 +272,6 @@
                             <h5 class="mb-3">Sekolah</h5>
                             <p>merupakan bangunan atau lembaga untuk belajar dan mengajar serta tempat menerima dan
                                 memberi pelajaran. </p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
@@ -292,7 +282,6 @@
                             <h5 class="mb-3">App Development</h5>
                             <p>Pengembangan digital yang dirancang untuk mendukung sistem pendidikan agar lebih efektif, 
                                 modern, dan mudah digunakan oleh siswa maupun sekolah.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -305,8 +294,8 @@
             <div class="container px-lg-5">
 
                 <div class="section-title position-relative text-center mb-5 pb-2">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Projects</h6>
-                    <h2 class="mt-2">administration of student permits</h2>
+                    <h6 class="position-relative d-inline text-primary ps-4">Proyek Kami</h6>
+                    <h2 class="mt-2">administrasi izin pelajar</h2>
                 </div>
 
 
@@ -444,8 +433,8 @@
 
     <div class="container px-lg-5">
         <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="position-relative d-inline text-primary ps-4">Tim</h6>
-            <h2 class="mt-2">Anggota Panitia</h2>
+           
+            <h2 class="mt-2">Tim</h2>
         </div>
 
                 <div class="row g-4">
@@ -463,7 +452,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-1.jpg') }}"
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/tim2.png') }}"
                                     alt="">
                             </div>
                             <div class="px-4 py-3">
@@ -509,7 +498,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i
                                             class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/team-3.jpg') }}"
+                                <img class="img-fluid rounded w-100" src="{{ asset('user/assets/img/tim3.png') }}"
                                     alt="">
                             </div>
                             <div class="px-4 py-3">
@@ -551,7 +540,7 @@
                     <div class="col-md-6 col-lg-3">
                         <a href="#top" class="btn btn-link">Beranda</a>
                         <a href="#visi-misi" class="btn btn-link">Visi & Misi</a>
-                        <a href="#tentang-kami" class="btn btn-link">Tentang Kami</a>
+                        <a href="#Fitur-kami" class="btn btn-link">Fitur Kami</a>
                     </div>
                 </div>
             </div>

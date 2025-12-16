@@ -441,12 +441,17 @@
                 <span>Dashboard</span>
             </a>
 
-            <a href="#" class="nav-item">
-                <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                </svg>
-                <span>Data Siswa</span>
-            </a>
+           <a href="{{ route('admin.data-siswa.index') }}" class="nav-item">
+    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+         viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2
+        M9 5a2 2 0 002 2h2a2 2 0 002-2
+        M9 5a2 2 0 012-2h2a2 2 0 012 2
+        m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+    </svg>
+    <span>Data Siswa</span>
+</a>
+
 
             <!-- ✅ HANYA BAGIAN INI YANG DIUBAH -->
             <a href="/guru" class="nav-item">
@@ -457,13 +462,14 @@
             </a>
             <!-- ✅ SAMPAI DI SINI SAJA PERUBAHANNYA -->
 
-            <a href="{{ url('/surat-izin') }}" class="nav-item">
+            <a href="{{ route('admin.surat-izin.index') }}" class="nav-item">
+    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+         viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+    </svg>
+    <span>Surat Izin</span>
+</a>
 
-                <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                </svg>
-                <span>Surat Izin</span>
-            </a>
             <a href="#" class="nav-item" @click.prevent="isPagesMenuOpen = !isPagesMenuOpen">
                 <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
@@ -482,9 +488,15 @@
                 <a href="#" class="nav-item" style="font-size: 0.875rem; padding: 0.75rem 1rem;">
                     <span>Forgot Password</span>
                 </a>
-                <a href="#" class="nav-item" style="font-size: 0.875rem; padding: 0.75rem 1rem;">
-                    <span>Logout</span>
-                </a>
+                <a href="{{ route('admin.logout') }}"
+   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+   class="nav-item">
+   <span>Logout</span>
+</a>
+
+<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display:none;">
+    @csrf
+</form>
             </div>
         </nav>
     </aside>

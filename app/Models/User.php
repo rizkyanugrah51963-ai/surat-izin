@@ -11,20 +11,33 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    /**
+     * Field yang boleh diisi mass-assignment
+     * (WAJIB sesuai dengan RegisterController)
+     */
     protected $fillable = [
         'username',
         'name',
         'email',
         'nisn',
+        'jenjang_sekolah',
+        'kelas',
+        'asal_sekolah',
         'password',
         'role',
     ];
 
+    /**
+     * Field yang disembunyikan
+     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    /**
+     * Cast tipe data
+     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -32,8 +45,9 @@ class User extends Authenticatable
     /**
      * Relasi foto profil (polymorphic)
      */
-    public function file()
-    {
-        return $this->morphOne(File::class, 'fileable');
-    }
+    public function files()
+{
+    return $this->morphMany(File::class, 'fileable');
+}
+
 }
